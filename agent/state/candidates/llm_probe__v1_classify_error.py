@@ -27,6 +27,21 @@ class ProbeResult:
     details: dict = field(default_factory=dict)
 
 
+
+    @staticmethod
+    def classify_error(result):
+        """Classify a failed probe result: 'transient' (retry), 'permanent' (give up), or 'unknown'.
+        Permanent: 401, 403, 404 (config issues). Transient: 429, 5xx, connection reset.
+        """
+        if result.ok:
+            return "ok"
+        err = result.error.lower()
+        if any(code in err for code in ("401", "403", "404", "unauthorized", "forbidden", "not found")):
+            return "permanent"
+        if any(code in err for code in ("429", "timeout", "reset", "refused", "unavailable")):
+            return "transient"
+        return "unknown"
+
 class LLMProbe:
     def __init__(self, base_url: str = "http://localhost:11434", model: str = "llama3.2", timeout: int = 30):
         self.base_url = base_url.rstrip("/")
@@ -127,3 +142,4 @@ if __name__ == "__main__":
     assert r.backend in ("openai", "ollama", "unreachable")
     print("OK: all probe invariants hold")
 __variant_id__ = "llm_probe__v2_retry_transient"
+__variant_id__ = "llm_probe__v1_classify_error"

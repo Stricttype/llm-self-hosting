@@ -3,8 +3,8 @@
   "cognitive_pattern": "systems",
   "command": "python3 agent/stages/harvest.py",
   "returncode": 0,
-  "stdout": "[harvest] 85 events \u2192 agent/state/harvested_events.json (source: events.jsonl)\n",
+  "stdout": "[harvest] 171 events \u2192 agent/state/harvested_events.json (source: events.jsonl)\n",
   "stderr": "",
-  "ts": 1783166734.895581,
-  "duration_s": 0.03852987289428711
+  "ts": 1783170130.503,
+  "duration_s": 0.03729701042175293
 }

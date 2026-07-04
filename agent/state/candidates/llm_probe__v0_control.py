@@ -127,3 +127,4 @@ if __name__ == "__main__":
     assert r.backend in ("openai", "ollama", "unreachable")
     print("OK: all probe invariants hold")
 __variant_id__ = "llm_probe__v2_retry_transient"
+__variant_id__ = "llm_probe__v0_control"

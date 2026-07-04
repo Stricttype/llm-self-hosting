@@ -83,22 +83,6 @@ class LLMProbe:
             )
         return ProbeResult(ok=False, backend="ollama", error=str(payload.get("error", status)))
 
-
-    def probe_with_retry(self, prompt="Say 'pong' and nothing else.", max_retries=3):
-        """Probe with automatic retry on transient errors. Exponential backoff.
-        """
-        import time as _time
-        last_result = self.probe(prompt)
-        for attempt in range(max_retries - 1):
-            if last_result.ok:
-                return last_result
-            classification = self.classify_error(last_result)
-            if classification != "transient":
-                return last_result
-            _time.sleep(2 ** attempt)
-            last_result = self.probe(prompt)
-        return last_result
-
     def probe(self, prompt: str = "Say 'pong' and nothing else.") -> ProbeResult:
         """Try OpenAI-compatible first (covers vLLM, LM Studio, llama-server), then Ollama."""
         if "/v1" in self.base_url or ":8000" in self.base_url or ":1234" in self.base_url:
@@ -126,4 +110,3 @@ if __name__ == "__main__":
     # Sanity: backend string enum is bounded
     assert r.backend in ("openai", "ollama", "unreachable")
     print("OK: all probe invariants hold")
-__variant_id__ = "llm_probe__v2_retry_transient"

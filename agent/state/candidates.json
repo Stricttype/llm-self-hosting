@@ -5,7 +5,8 @@
     "hardware_sizer",
     "cost_calculator",
     "vllm_config",
-    "lora_manager"
+    "lora_manager",
+    "llm_probe"
   ],
   "by_script": {
     "prompt_guard": [
@@ -30,6 +31,13 @@
         "description": "tighten confidence thresholds",
         "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/prompt_guard__v2_tighter_confidence.py",
         "size_bytes": 4735
+      },
+      {
+        "variant_id": "v3_structured_output",
+        "script": "prompt_guard",
+        "description": "add check_structured() with match details",
+        "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/prompt_guard__v3_structured_output.py",
+        "size_bytes": 5608
       }
     ],
     "hardware_sizer": [
@@ -122,6 +130,30 @@
         "size_bytes": 0,
         "noop": true
       }
+    ],
+    "llm_probe": [
+      {
+        "variant_id": "v0_control",
+        "script": "llm_probe",
+        "description": "no change (control)",
+        "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/llm_probe__v0_control.py",
+        "size_bytes": 5356
+      },
+      {
+        "variant_id": "v1_classify_error",
+        "script": "llm_probe",
+        "description": "add classify_error() for transient/permanent",
+        "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/llm_probe__v1_classify_error.py",
+        "size_bytes": 5985
+      },
+      {
+        "variant_id": "v2_retry_transient",
+        "script": "llm_probe",
+        "description": "add probe_with_retry() with exponential backoff [already-promoted, no-op]",
+        "path": null,
+        "size_bytes": 0,
+        "noop": true
+      }
     ]
   },
   "candidates": [
@@ -146,6 +178,13 @@
       "description": "tighten confidence thresholds",
       "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/prompt_guard__v2_tighter_confidence.py",
       "size_bytes": 4735
+    },
+    {
+      "variant_id": "v3_structured_output",
+      "script": "prompt_guard",
+      "description": "add check_structured() with match details",
+      "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/prompt_guard__v3_structured_output.py",
+      "size_bytes": 5608
     },
     {
       "variant_id": "v0_control",
@@ -229,8 +268,30 @@
       "path": null,
       "size_bytes": 0,
       "noop": true
+    },
+    {
+      "variant_id": "v0_control",
+      "script": "llm_probe",
+      "description": "no change (control)",
+      "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/llm_probe__v0_control.py",
+      "size_bytes": 5356
+    },
+    {
+      "variant_id": "v1_classify_error",
+      "script": "llm_probe",
+      "description": "add classify_error() for transient/permanent",
+      "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/llm_probe__v1_classify_error.py",
+      "size_bytes": 5985
+    },
+    {
+      "variant_id": "v2_retry_transient",
+      "script": "llm_probe",
+      "description": "add probe_with_retry() with exponential backoff [already-promoted, no-op]",
+      "path": null,
+      "size_bytes": 0,
+      "noop": true
     }
   ],
-  "n_total": 14,
+  "n_total": 18,
   "mode": "real_multi_script"
 }

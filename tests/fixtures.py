@@ -123,6 +123,13 @@ FIXTURES: tuple[Fixture, ...] = (
     Fixture("probe_backend_enum_bounded", "llm_probe",
             # backend default = "unreachable" enables fail-soft ProbeResult() construction
             "llm_probe.ProbeResult(ok=False).backend == 'unreachable'"),
+    # NEW fixtures (Step 3): test new methods
+    Fixture("probe_has_classify_error", "llm_probe",
+            "hasattr(llm_probe, 'classify_error') and callable(getattr(llm_probe, 'classify_error', None))"),
+    Fixture("probe_has_retry", "llm_probe",
+            "hasattr(llm_probe.LLMProbe(base_url='http://x', timeout=1), 'probe_with_retry')"),
+    Fixture("guard_has_structured_output", "prompt_guard",
+            "hasattr(prompt_guard, 'check_structured') and callable(getattr(prompt_guard, 'check_structured', None))"),
 )
 
 

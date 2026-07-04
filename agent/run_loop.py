@@ -50,10 +50,12 @@ def execute_step(step: dict) -> tuple[int, str, float]:
             dep_result = STATE / "step_logs" / f"{dep}.json"
             if not dep_result.exists():
                 return 1, "", 0.0
+    # Force VALUE to use stub in CI/test context (ruflo CLI is slow with many events).
+    if step["id"] == "value":
+        cmd = cmd + " --no-mcp"
     print(f"[run_loop] >> step: {step['id']} ({step['cognitive_pattern']})")
     t0 = time.time()
-    # Per-step timeout: VALUE's ruflo memory search is slow (loads ONNX model
-    # per call). 180s covers 14 events × ~4s each + margin.
+    # Per-step timeout: VALUE stub is fast; live is slow.
     timeout_s = 180 if step["id"] == "value" else 60
     proc = subprocess.run(
         cmd, shell=True, cwd=str(ROOT),

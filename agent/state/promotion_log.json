@@ -56,13 +56,21 @@
       "winner_pass_rate": 96.3,
       "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/vllm_config.py.bak.20260704T115701",
       "promoted_at": "2026-07-04T11:57:01.960285+00:00"
+    },
+    {
+      "script": "llm_probe",
+      "variant": "v2_retry_transient",
+      "incumbent_pass_rate": 86.7,
+      "winner_pass_rate": 90.0,
+      "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/llm_probe.py.bak.20260704T123458",
+      "promoted_at": "2026-07-04T12:34:58.825015+00:00"
     }
   ],
-  "n_evaluated": 14,
-  "ts": "2026-07-04T12:07:15.348817+00:00",
-  "runs": 26,
+  "n_evaluated": 18,
+  "ts": "2026-07-04T13:02:12.159460+00:00",
+  "runs": 39,
   "last_attempt": {
-    "ts": "2026-07-04T12:07:15.348817+00:00",
+    "ts": "2026-07-04T13:02:12.159460+00:00",
     "verdict": "neutral",
     "winner": null
   },

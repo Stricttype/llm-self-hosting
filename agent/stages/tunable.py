@@ -207,6 +207,101 @@ def lora_manager_v2_atomic_swap(source: str) -> str:
     )
 
 
+# ===== llm_probe variants =====
+
+def llm_probe_v0_control(source: str) -> str:
+    return source
+
+
+def llm_probe_v1_classify_error(source: str) -> str:
+    """Add classify_error() to differentiate transient vs permanent failures.
+    Idempotent."""
+    if 'def classify_error' in source:
+        return source
+    addition = '''
+    @staticmethod
+    def classify_error(result):
+        """Classify a failed probe result: 'transient' (retry), 'permanent' (give up), or 'unknown'.
+        Permanent: 401, 403, 404 (config issues). Transient: 429, 5xx, connection reset.
+        """
+        if result.ok:
+            return "ok"
+        err = result.error.lower()
+        if any(code in err for code in ("401", "403", "404", "unauthorized", "forbidden", "not found")):
+            return "permanent"
+        if any(code in err for code in ("429", "timeout", "reset", "refused", "unavailable")):
+            return "transient"
+        return "unknown"
+'''
+    return source.replace(
+        'class LLMProbe:',
+        addition + '\nclass LLMProbe:',
+    )
+
+
+def llm_probe_v2_retry_transient(source: str) -> str:
+    """Add probe_with_retry() with exponential backoff for transient errors.
+    Idempotent."""
+    if 'def probe_with_retry' in source:
+        return source
+    addition = '''
+    def probe_with_retry(self, prompt="Say 'pong' and nothing else.", max_retries=3):
+        """Probe with automatic retry on transient errors. Exponential backoff.
+        """
+        import time as _time
+        last_result = self.probe(prompt)
+        for attempt in range(max_retries - 1):
+            if last_result.ok:
+                return last_result
+            classification = self.classify_error(last_result)
+            if classification != "transient":
+                return last_result
+            _time.sleep(2 ** attempt)
+            last_result = self.probe(prompt)
+        return last_result
+'''
+    return source.replace(
+        '    def probe(self, prompt: str = "Say \'pong\' and nothing else.") -> ProbeResult:',
+        addition + '\n    def probe(self, prompt: str = "Say \'pong\' and nothing else.") -> ProbeResult:',
+    )
+
+
+# ===== prompt_guard v3 (deeper coverage) =====
+
+def prompt_guard_v3_structured_output(source: str) -> str:
+    """Add check_structured() that returns a GuardFinding with match details.
+    Idempotent."""
+    if 'def check_structured' in source:
+        return source
+    addition = '''
+@dataclass(frozen=True)
+class GuardFinding:
+    is_injection: bool
+    confidence: float
+    matched_pattern: str | None
+    method: str
+
+def check_structured(text: str, use_model: bool = False) -> GuardFinding:
+    """Same as check() but returns a structured finding with match details.
+    """
+    rule_hit, rule_conf = _rule_check(text)
+    if not use_model:
+        return GuardFinding(
+            is_injection=rule_hit,
+            confidence=rule_conf if rule_hit else 1 - rule_conf,
+            matched_pattern=next((p for p in OBVIOUS_INJECTION_PATTERNS if p in text.lower()), None),
+            method="rule",
+        )
+    return GuardFinding(
+        is_injection=rule_hit,
+        confidence=rule_conf if rule_hit else 1 - rule_conf,
+        matched_pattern=next((p for p in OBVIOUS_INJECTION_PATTERNS if p in text.lower()), None),
+        method="rule",
+    )
+'''
+    return source.rstrip() + '\n' + addition + '\n'
+
+
 # ===== Registry =====
 
 TUNABLES: dict[str, list[tuple[str, callable, str]]] = {
@@ -214,6 +309,7 @@ TUNABLES: dict[str, list[tuple[str, callable, str]]] = {
         ("v0_control", prompt_guard_v0_control, "no change (control)"),
         ("v1_more_patterns", prompt_guard_v1_more_patterns, "+2 injection patterns"),
         ("v2_tighter_confidence", prompt_guard_v2_tighter_confidence, "tighten confidence thresholds"),
+        ("v3_structured_output", prompt_guard_v3_structured_output, "add check_structured() with match details"),
     ],
     "hardware_sizer": [
         ("v0_control", hardware_sizer_v0_control, "no change (control)"),
@@ -233,6 +329,11 @@ TUNABLES: dict[str, list[tuple[str, callable, str]]] = {
         ("v0_control", lora_manager_v0_control, "no change (control)"),
         ("v1_add_metrics", lora_manager_v1_add_metrics, "add cache_hit_rate() metric"),
         ("v2_atomic_swap", lora_manager_v2_atomic_swap, "add atomic_swap() for zero-gap adapter replacement"),
+    ],
+    "llm_probe": [
+        ("v0_control", llm_probe_v0_control, "no change (control)"),
+        ("v1_classify_error", llm_probe_v1_classify_error, "add classify_error() for transient/permanent"),
+        ("v2_retry_transient", llm_probe_v2_retry_transient, "add probe_with_retry() with exponential backoff"),
     ],
 }
 
