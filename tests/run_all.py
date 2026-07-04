@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 USE_CASES = Path(__file__).parent.parent / "use-cases"
+ROOT = Path(__file__).parent.parent
 
 
 def run(name: str) -> tuple[bool, str]:
@@ -63,7 +64,28 @@ def main() -> int:
         print(f"  {line}")
     shadow_pass = result.returncode == 0
 
-    return 0 if (not failed and fix_pass and shadow_pass) else 1
+    # Holdout (Step 0 — north-star metric)
+    print(f"\nHoldout (Step 0, north-star metric):")
+    result = subprocess.run([sys.executable, str(Path(__file__).parent / "holdout.py")],
+                            capture_output=True, text=True, timeout=30)
+    for line in result.stdout.strip().splitlines():
+        print(f"  {line}")
+    holdout_pass = result.returncode == 0
+
+    # Agent stubs (Step 0.5 provenance + Step 1.5 drift monitor)
+    print(f"\nAgent stubs (Step 0.5 + 1.5):")
+    for stub in ["provenance", "drift_monitor"]:
+        path = ROOT / "agent" / f"{stub}.py"
+        if not path.exists():
+            continue
+        result = subprocess.run([sys.executable, str(path)],
+                                capture_output=True, text=True, timeout=30)
+        for line in result.stdout.strip().splitlines():
+            print(f"  [{stub}] {line}")
+        if result.returncode != 0:
+            return 1
+
+    return 0 if (not failed and fix_pass and shadow_pass and holdout_pass) else 1
 
 
 if __name__ == "__main__":
