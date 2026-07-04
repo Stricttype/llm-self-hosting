@@ -85,7 +85,16 @@ def main() -> int:
         if result.returncode != 0:
             return 1
 
-    return 0 if (not failed and fix_pass and shadow_pass and holdout_pass) else 1
+    # Closed-loop workflow run (Ruflo-orchestrated, locally executed)
+    print(f"\nClosed-loop workflow (Ruflo swarm + DAA, autonomous run):")
+    loop_path = ROOT / "agent" / "run_loop.py"
+    result = subprocess.run([sys.executable, str(loop_path)],
+                            capture_output=True, text=True, timeout=120)
+    for line in result.stdout.strip().splitlines()[-10:]:
+        print(f"  {line}")
+    loop_pass = result.returncode == 0
+
+    return 0 if (not failed and fix_pass and shadow_pass and holdout_pass and loop_pass) else 1
 
 
 if __name__ == "__main__":

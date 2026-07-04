@@ -1,0 +1,68 @@
+{
+  "id": "closed-loop-v1",
+  "name": "LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal)",
+  "description": "5-stage pipeline + 1 orthogonal monitor. Stages call real local scripts; stubs only where Step 2/3 logic lives (VoI gate, PROPOSE).",
+  "strategy": "adaptive",
+  "steps": [
+    {
+      "id": "harvest",
+      "name": "HARVEST — collect events",
+      "cognitive_pattern": "systems",
+      "command": "python3 agent/stages/harvest.py",
+      "inputs": ["event_log_path"],
+      "outputs": ["harvested_events.json"]
+    },
+    {
+      "id": "value",
+      "name": "VALUE — VoI gate (read-only stub)",
+      "cognitive_pattern": "critical",
+      "command": "python3 agent/stages/value.py",
+      "inputs": ["harvested_events.json"],
+      "outputs": ["value_decisions.json"],
+      "depends_on": ["harvest"]
+    },
+    {
+      "id": "propose",
+      "name": "PROPOSE — generate N=3 candidate variants",
+      "cognitive_pattern": "lateral",
+      "command": "python3 agent/stages/propose.py",
+      "inputs": ["value_decisions.json"],
+      "outputs": ["candidates/"],
+      "depends_on": ["value"]
+    },
+    {
+      "id": "shadow",
+      "name": "SHADOW — score candidates vs incumbent on frozen fixtures",
+      "cognitive_pattern": "critical",
+      "command": "python3 agent/stages/shadow.py",
+      "inputs": ["candidates/"],
+      "outputs": ["shadow_scores.json"],
+      "depends_on": ["propose"]
+    },
+    {
+      "id": "promote",
+      "name": "PROMOTE — atomic swap + incumbent.bak (only if shadow beats)",
+      "cognitive_pattern": "convergent",
+      "command": "python3 agent/stages/promote.py",
+      "inputs": ["shadow_scores.json"],
+      "outputs": ["promotion_log.json"],
+      "depends_on": ["shadow"]
+    },
+    {
+      "id": "monitor",
+      "name": "MONITOR — drift sidecar (orthogonal, time-driven)",
+      "cognitive_pattern": "systems",
+      "command": "python3 agent/stages/monitor.py",
+      "inputs": ["promotion_log.json"],
+      "outputs": ["drift_alerts.json"]
+    }
+  ],
+  "dependencies": {
+    "harvest": [],
+    "value": ["harvest"],
+    "propose": ["value"],
+    "shadow": ["propose"],
+    "promote": ["shadow"],
+    "monitor": ["promote"]
+  }
+}

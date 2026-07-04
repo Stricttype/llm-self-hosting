@@ -1,0 +1,16 @@
+{
+  "workflow_id": "closed-loop-v1",
+  "ts": 1783163372.713964,
+  "done": [
+    "harvest",
+    "monitor",
+    "promote",
+    "propose",
+    "shadow",
+    "value"
+  ],
+  "failed": [],
+  "ts_done": 6,
+  "n_failed": 0,
+  "n_total": 6
+}

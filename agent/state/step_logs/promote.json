@@ -1,0 +1,9 @@
+{
+  "step_id": "promote",
+  "cognitive_pattern": "convergent",
+  "command": "python3 agent/stages/promote.py",
+  "returncode": 0,
+  "stdout": "[promote] 0 promoted (stub \u2014 0 candidates evaluated)\n",
+  "stderr": "",
+  "ts": 1783163372.6748438
+}

@@ -1,0 +1,9 @@
+{
+  "step_id": "monitor",
+  "cognitive_pattern": "systems",
+  "command": "python3 agent/stages/monitor.py",
+  "returncode": 0,
+  "stdout": "[monitor] 0 alerts (0 promoted artifacts tracked)\n",
+  "stderr": "",
+  "ts": 1783163372.713614
+}

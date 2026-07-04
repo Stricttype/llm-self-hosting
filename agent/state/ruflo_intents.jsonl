@@ -1,0 +1,4 @@
+{"ts": 1783163358.920704, "tool": "ruflo_task_create", "args": {"title": "closed-loop run @ 2026-07-04 13:09:18", "workflowId": "closed-loop-v1"}}
+{"ts": 1783163359.2824728, "tool": "ruflo_task_update", "args": {"title": "closed-loop run complete", "summary": {"workflow_id": "closed-loop-v1", "ts": 1783163359.2822988, "done": ["harvest", "monitor", "promote", "propose", "shadow", "value"], "failed": [], "ts_done": 6, "n_failed": 0, "n_total": 6}}}
+{"ts": 1783163372.396002, "tool": "ruflo_task_create", "args": {"title": "closed-loop run @ 2026-07-04 13:09:32", "workflowId": "closed-loop-v1"}}
+{"ts": 1783163372.7141278, "tool": "ruflo_task_update", "args": {"title": "closed-loop run complete", "summary": {"workflow_id": "closed-loop-v1", "ts": 1783163372.713964, "done": ["harvest", "monitor", "promote", "propose", "shadow", "value"], "failed": [], "ts_done": 6, "n_failed": 0, "n_total": 6}}}

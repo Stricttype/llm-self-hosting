@@ -1,0 +1,9 @@
+{
+  "step_id": "shadow",
+  "cognitive_pattern": "critical",
+  "command": "python3 agent/stages/shadow.py",
+  "returncode": 0,
+  "stdout": "[shadow] incumbent: shadow: pass_rate=100.0% (18/18) regressions=0 errors=0\n",
+  "stderr": "",
+  "ts": 1783163372.640424
+}

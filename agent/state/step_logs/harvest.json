@@ -1,0 +1,9 @@
+{
+  "step_id": "harvest",
+  "cognitive_pattern": "systems",
+  "command": "python3 agent/stages/harvest.py",
+  "returncode": 0,
+  "stdout": "[harvest] 0 events \u2192 agent/state/harvested_events.json\n",
+  "stderr": "",
+  "ts": 1783163372.430965
+}
