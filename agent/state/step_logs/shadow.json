@@ -5,5 +5,6 @@
   "returncode": 0,
   "stdout": "[shadow] 5 variants scored. incumbent=100.0% verdict=neutral\n  cost_calculator:\n    v0_control                neutral  100.0%\n  hardware_sizer:\n    v0_control                neutral  100.0%\n    v2_lower_overhead         neutral  100.0%\n  prompt_guard:\n    v0_control                neutral  100.0%\n    v2_tighter_confidence     neutral  100.0%\n",
   "stderr": "",
-  "ts": 1783165040.712078
+  "ts": 1783165585.05522,
+  "duration_s": 0.6638998985290527
 }

@@ -1,14 +1,25 @@
 {
   "source": "harvested_events.json",
-  "n_events": 10,
-  "n_kept": 10,
+  "n_events": 9,
+  "n_kept": 9,
   "n_dropped": 0,
   "drop_rate": 0.0,
   "mode": "live-mcp",
   "threshold": 0.01,
   "decisions": [
     {
-      "event_id": "loop_1783165021_harvest",
+      "event_id": "loop_start_1783165432",
+      "type": "loop_start",
+      "novelty": 0.5,
+      "similarity_to_nearest": 0.0,
+      "outcome_proxy": 1.0,
+      "shadow_cost": 3.0,
+      "voi_score": 0.166667,
+      "decision": "keep",
+      "reason": "voi=0.1667_novel=0.500_sim=0.000"
+    },
+    {
+      "event_id": "loop_1783165432_harvest",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -19,7 +30,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783165021_monitor",
+      "event_id": "loop_1783165433_value",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -30,7 +41,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783165021_promote",
+      "event_id": "loop_1783165433_propose",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -41,7 +52,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783165021_propose",
+      "event_id": "loop_1783165434_shadow",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -52,7 +63,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783165021_shadow",
+      "event_id": "loop_1783165434_promote",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -63,7 +74,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783165021_value",
+      "event_id": "loop_1783165434_monitor",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -74,8 +85,8 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "promotion_2026-07-04T11:14:09+00:00",
-      "type": "promotion",
+      "event_id": "loop_complete_1783165434",
+      "type": "loop_complete",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
       "outcome_proxy": 1.0,
@@ -85,30 +96,8 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "promotion_2026-07-04T11:33:39.533839+00:00",
-      "type": "promotion",
-      "novelty": 0.5,
-      "similarity_to_nearest": 0.0,
-      "outcome_proxy": 1.0,
-      "shadow_cost": 3.0,
-      "voi_score": 0.166667,
-      "decision": "keep",
-      "reason": "voi=0.1667_novel=0.500_sim=0.000"
-    },
-    {
-      "event_id": "promotion_2026-07-04T11:35:07.291982+00:00",
-      "type": "promotion",
-      "novelty": 0.5,
-      "similarity_to_nearest": 0.0,
-      "outcome_proxy": 1.0,
-      "shadow_cost": 3.0,
-      "voi_score": 0.166667,
-      "decision": "keep",
-      "reason": "voi=0.1667_novel=0.500_sim=0.000"
-    },
-    {
-      "event_id": "promotion_2026-07-04T11:37:00.729636+00:00",
-      "type": "promotion",
+      "event_id": "loop_start_1783165574",
+      "type": "loop_start",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
       "outcome_proxy": 1.0,
