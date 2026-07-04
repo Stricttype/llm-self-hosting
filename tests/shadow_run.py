@@ -91,7 +91,9 @@ def score(candidate_overrides: dict[str, Path] | None = None) -> ShadowScore:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--candidate", type=Path, action="append", default=[],
-                    help="path to candidate file; can repeat. Script name inferred from filename.")
+                    help="path to candidate file; can repeat. Script name inferred from filename, or set explicitly with --script.")
+    ap.add_argument("--script", action="append", default=[],
+                    help="explicit script name for the corresponding --candidate (positional pairing).")
     ap.add_argument("--incumbent", action="store_true",
                     help="score the incumbent (default = no overrides)")
     ap.add_argument("--compare", action="store_true",
@@ -100,10 +102,16 @@ def main() -> int:
 
     # Build overrides map from --candidate flags
     overrides: dict[str, Path] = {}
-    for path in args.candidate:
+    explicit_scripts = list(args.script)
+    for i, path in enumerate(args.candidate):
         if not path.is_absolute():
             path = (Path.cwd() / path).resolve()
-        overrides[path.stem] = path
+        # If explicit --script was given for this position, use it; else fall back to filename stem
+        if i < len(explicit_scripts):
+            script_name = explicit_scripts[i]
+        else:
+            script_name = path.stem
+        overrides[script_name] = path
 
     if args.compare and overrides:
         # Snapshot incumbent files BEFORE loading candidate (since candidate may live in use-cases/)

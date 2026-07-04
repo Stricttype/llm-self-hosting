@@ -1,5 +1,44 @@
 {
-  "incumbent": "shadow: pass_rate=100.0% (18/18) regressions=0 errors=0",
-  "candidates": [],
-  "rc": 0
+  "scores": [
+    {
+      "label": "v0_control",
+      "rc": 0,
+      "stdout": "incumbent:  pass_rate=100.0% (20/20) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (20/20) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
+      "stderr": "",
+      "incumbent_pass_rate": 100.0,
+      "incumbent_regressions": 0,
+      "candidate_pass_rate": 100.0,
+      "candidate_regressions": 0,
+      "delta_passes": 0,
+      "verdict": "neutral"
+    },
+    {
+      "label": "v1_more_patterns",
+      "rc": 0,
+      "stdout": "incumbent:  pass_rate=100.0% (20/20) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (20/20) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
+      "stderr": "",
+      "incumbent_pass_rate": 100.0,
+      "incumbent_regressions": 0,
+      "candidate_pass_rate": 100.0,
+      "candidate_regressions": 0,
+      "delta_passes": 0,
+      "verdict": "neutral"
+    },
+    {
+      "label": "v2_tighter_confidence",
+      "rc": 0,
+      "stdout": "incumbent:  pass_rate=100.0% (20/20) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (20/20) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
+      "stderr": "",
+      "incumbent_pass_rate": 100.0,
+      "incumbent_regressions": 0,
+      "candidate_pass_rate": 100.0,
+      "candidate_regressions": 0,
+      "delta_passes": 0,
+      "verdict": "neutral"
+    }
+  ],
+  "incumbent_pass_rate": 100.0,
+  "winner": null,
+  "verdict": "neutral",
+  "n_candidates": 3
 }

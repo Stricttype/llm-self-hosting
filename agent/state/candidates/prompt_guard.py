@@ -41,10 +41,10 @@ def _rule_check(text: str) -> tuple[bool, float]:
     lowered = text.lower().strip()
     for pat in OBVIOUS_INJECTION_PATTERNS:
         if pat in lowered:
-            return True, 0.95
+            return True, 0.99
     # Suspicious structural patterns
     if lowered.count("ignore") + lowered.count("disregard") + lowered.count("forget") >= 2:
-        return True, 0.7
+        return True, 0.85
     return False, 0.1
 
 
@@ -120,3 +120,4 @@ if __name__ == "__main__":
         assert r.is_injection == expected, f"expected {expected} for: {text}"
     print("\nOK: 5/5 rule-based cases detected correctly")
 __variant_id__ = "v1_more_patterns"
+__variant_id__ = "v2_tighter_confidence"

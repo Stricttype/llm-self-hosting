@@ -1,5 +1,25 @@
 {
-  "candidates": [],
   "tournament_size": 3,
-  "mode": "stub"
+  "target_script": "prompt_guard",
+  "candidates": [
+    {
+      "variant_id": "v0_control",
+      "description": "no change \u2014 control",
+      "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/prompt_guard.py",
+      "size_bytes": 4709
+    },
+    {
+      "variant_id": "v1_more_patterns",
+      "description": "extend OBVIOUS_INJECTION_PATTERNS +2 entries",
+      "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/prompt_guard.py",
+      "size_bytes": 4782
+    },
+    {
+      "variant_id": "v2_tighter_confidence",
+      "description": "tighten confidence thresholds (0.95\u21920.99, 0.7\u21920.85)",
+      "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/prompt_guard.py",
+      "size_bytes": 4721
+    }
+  ],
+  "mode": "real"
 }
