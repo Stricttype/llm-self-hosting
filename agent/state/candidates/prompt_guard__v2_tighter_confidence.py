@@ -120,4 +120,4 @@ if __name__ == "__main__":
         assert r.is_injection == expected, f"expected {expected} for: {text}"
     print("\nOK: 5/5 rule-based cases detected correctly")
 __variant_id__ = "v1_more_patterns"
-__variant_id__ = "v2_tighter_confidence"
+__variant_id__ = "prompt_guard__v2_tighter_confidence"

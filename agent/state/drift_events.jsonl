@@ -1,3 +1,13 @@
 {"artifact_id": "prompt_guard@v1_more_patterns", "passed": true, "ts": "2026-07-04T11:15:30.036903+00:00", "promoted_at": "2026-07-04T11:14:09+00:00"}
 {"artifact_id": "prompt_guard@v1_more_patterns", "passed": true, "ts": "2026-07-04T11:26:18.275549+00:00", "promoted_at": "2026-07-04T11:14:09+00:00"}
 {"artifact_id": "prompt_guard@v1_more_patterns", "passed": true, "ts": "2026-07-04T11:28:06.167630+00:00", "promoted_at": "2026-07-04T11:14:09+00:00"}
+{"artifact_id": "prompt_guard@v1_more_patterns", "passed": true, "ts": "2026-07-04T11:33:12.901667+00:00", "promoted_at": "2026-07-04T11:14:09+00:00"}
+{"artifact_id": "prompt_guard@v1_more_patterns", "passed": true, "ts": "2026-07-04T11:33:39.576272+00:00", "promoted_at": "2026-07-04T11:14:09+00:00"}
+{"artifact_id": "hardware_sizer@v1_add_b200_tier", "passed": true, "ts": "2026-07-04T11:33:39.576565+00:00", "promoted_at": "2026-07-04T11:33:39.533839+00:00"}
+{"artifact_id": "prompt_guard@v1_more_patterns", "passed": true, "ts": "2026-07-04T11:33:56.964515+00:00", "promoted_at": "2026-07-04T11:14:09+00:00"}
+{"artifact_id": "hardware_sizer@v1_add_b200_tier", "passed": true, "ts": "2026-07-04T11:33:56.964942+00:00", "promoted_at": "2026-07-04T11:33:39.533839+00:00"}
+{"artifact_id": "prompt_guard@v1_more_patterns", "passed": true, "ts": "2026-07-04T11:34:46.139739+00:00", "promoted_at": "2026-07-04T11:14:09+00:00"}
+{"artifact_id": "hardware_sizer@v1_add_b200_tier", "passed": true, "ts": "2026-07-04T11:34:46.140148+00:00", "promoted_at": "2026-07-04T11:33:39.533839+00:00"}
+{"artifact_id": "prompt_guard@v1_more_patterns", "passed": true, "ts": "2026-07-04T11:35:07.340583+00:00", "promoted_at": "2026-07-04T11:14:09+00:00"}
+{"artifact_id": "hardware_sizer@v1_add_b200_tier", "passed": true, "ts": "2026-07-04T11:35:07.341117+00:00", "promoted_at": "2026-07-04T11:33:39.533839+00:00"}
+{"artifact_id": "cost_calculator@v0_control", "passed": false, "ts": "2026-07-04T11:35:07.341264+00:00", "promoted_at": "2026-07-04T11:35:07.291982+00:00"}

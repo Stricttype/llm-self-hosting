@@ -85,3 +85,4 @@ if __name__ == "__main__":
         print(f"{params}B {quant} seq={seq} conc={conc} → {s.total_gb:.1f}GB → {s.recommended_gpu}")
     print("\nOK: all sizing cases pass")
 __variant_id__ = "hardware_sizer__v1_add_b200_tier"
+__variant_id__ = "hardware_sizer__v0_control"

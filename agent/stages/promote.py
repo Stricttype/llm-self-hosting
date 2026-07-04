@@ -54,24 +54,25 @@ def main() -> int:
         print(f"[promote] no promotion (verdict={verdict}, run #{log['runs']})")
         return 0
 
-    src = find_winner_source(winner_label, "prompt_guard")
+    src = find_winner_source(data.get("winner_variant", winner_label), data.get("winner_script", "prompt_guard"))
     if not src:
         log["ts"] = datetime.now(timezone.utc).isoformat()
         log["last_attempt"] = {"ts": log["ts"], "verdict": verdict, "winner": winner_label}
-        log["reason"] = f"winner snapshot not found: {winner_label}"
+        log["reason"] = f"winner snapshot not found: {data.get('winner_variant', winner_label)} for {data.get('winner_script')}"
         OUT.write_text(json.dumps(log, indent=2))
         print(f"[promote] FATAL: winner snapshot not found: {src}")
         return 1
 
-    incumbent_path = ROOT / "use-cases" / "prompt_guard.py"
+    target_script = data.get("winner_script", "prompt_guard")
+    incumbent_path = ROOT / "use-cases" / (target_script + ".py")
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
     bak_path = incumbent_path.with_suffix(f".py.bak.{ts}")
     shutil.copy(incumbent_path, bak_path)
     shutil.copy(src, incumbent_path)
 
     log["promoted"].append({
-        "script": "prompt_guard",
-        "variant": winner_label,
+        "script": target_script,
+        "variant": data.get("winner_variant") or winner_label.split("__")[-1],
         "incumbent_pass_rate": data.get("incumbent_pass_rate"),
         "winner_pass_rate": next((s.get("candidate_pass_rate") for s in data["scores"] if s["label"] == winner_label), None),
         "incumbent_backup": str(bak_path),
@@ -80,7 +81,7 @@ def main() -> int:
     log["last_attempt"] = {"ts": log["promoted"][-1]["promoted_at"], "verdict": "promote", "winner": winner_label}
     log["ts"] = log["promoted"][-1]["promoted_at"]
     OUT.write_text(json.dumps(log, indent=2))
-    print(f"[promote] PROMOTED {winner_label} → use-cases/prompt_guard.py")
+    print(f"[promote] PROMOTED {target_script}@{winner_label} → use-cases/{target_script}.py")
     print(f"[promote] incumbent backup: {bak_path}")
     print(f"[promote] history: {len(log['promoted'])} total promotions, run #{log['runs']}")
     return 0

@@ -78,12 +78,14 @@ def main() -> int:
         return 0
 
     scores = []
-    # Score each variant's snapshot
+    # Score each variant's snapshot across all scripts
     snapshots = sorted(CANDIDATES_DIR.glob("*__v*.py"))
-    target_script = candidates_data.get("target_script", "prompt_guard")
     for snap in snapshots:
-        vid = snap.stem.split("__")[-1]  # e.g. "v1_more_patterns"
-        s = score_one(vid, snap, target_script)
+        # Filename: <script>__<variant>.py → script is everything before "__"
+        parts = snap.stem.split("__")
+        target_script = parts[0]
+        vid = parts[1] if len(parts) > 1 else "v_unknown"
+        s = score_one(f"{target_script}__{vid}", snap, target_script)
         scores.append(s)
 
     # Pick winner: highest pass rate, zero regressions, most improvement over incumbent
@@ -104,6 +106,8 @@ def main() -> int:
         "scores": scores,
         "incumbent_pass_rate": incumbent_pass_rate,
         "winner": winner["label"] if winner else None,
+        "winner_script": winner["label"].split("__")[0] if winner else None,
+        "winner_variant": winner["label"].split("__")[1] if winner else None,
         "verdict": verdict,
         "n_candidates": len(candidates),
     }
@@ -112,12 +116,17 @@ def main() -> int:
     print(f"[shadow] {len(scores)} variants scored. incumbent={incumbent_pass_rate:.1f}% verdict={verdict}")
     if winner:
         print(f"[shadow] winner: {winner['label']} ({winner.get('candidate_pass_rate', 0):.1f}%)")
+    # Group output by script
+    by_script_out: dict[str, list[str]] = {}
     for s in scores:
-        v = s.get("verdict", "?")
-        ip = s.get("incumbent_pass_rate", 0)
-        cp = s.get("candidate_pass_rate", 0)
-        dr = s.get("delta_regressions", "?")
-        print(f"  {s['label']:25s} incumbent={ip:.1f}% candidate={cp:.1f}% verdict={v} regressions={dr}")
+        script = s["label"].split("__")[0]
+        by_script_out.setdefault(script, []).append(
+            f"{s['label'].split('__')[1]:25s} {s.get('verdict', '?'):8s} {s.get('candidate_pass_rate', 0):.1f}%"
+        )
+    for script, lines in by_script_out.items():
+        print(f"  {script}:")
+        for line in lines:
+            print(f"    {line}")
     return 0
 
 

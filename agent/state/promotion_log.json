@@ -8,15 +8,30 @@
       "incumbent_backup": "use-cases/prompt_guard.py.bak.20260704T111403",
       "promoted_at": "2026-07-04T11:14:09+00:00",
       "note": "historical entry restored after run-loop bug discovered"
+    },
+    {
+      "script": "hardware_sizer",
+      "variant": "v1_add_b200_tier",
+      "incumbent_pass_rate": 95.5,
+      "winner_pass_rate": 100.0,
+      "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/hardware_sizer.py.bak.20260704T113339",
+      "promoted_at": "2026-07-04T11:33:39.533839+00:00"
+    },
+    {
+      "script": "cost_calculator",
+      "variant": "v0_control",
+      "incumbent_pass_rate": 95.5,
+      "winner_pass_rate": 100.0,
+      "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/cost_calculator.py.bak.20260704T113507",
+      "promoted_at": "2026-07-04T11:35:07.291982+00:00"
     }
   ],
-  "n_evaluated": 3,
-  "ts": "2026-07-04T11:28:06.116629+00:00",
-  "runs": 7,
+  "n_evaluated": 8,
+  "ts": "2026-07-04T11:35:07.291982+00:00",
+  "runs": 11,
   "last_attempt": {
-    "ts": "2026-07-04T11:28:06.116629+00:00",
-    "verdict": "neutral",
-    "winner": null
-  },
-  "reason": "verdict=neutral; no promotion"
+    "ts": "2026-07-04T11:35:07.291982+00:00",
+    "verdict": "promote",
+    "winner": "cost_calculator__v0_control"
+  }
 }

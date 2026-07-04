@@ -3,7 +3,7 @@
   "cognitive_pattern": "critical",
   "command": "python3 agent/stages/shadow.py",
   "returncode": 0,
-  "stdout": "[shadow] 3 variants scored. incumbent=100.0% verdict=neutral\n  v0_control                incumbent=100.0% candidate=100.0% verdict=neutral regressions=?\n  v1_more_patterns          incumbent=100.0% candidate=100.0% verdict=neutral regressions=?\n  v2_tighter_confidence     incumbent=100.0% candidate=100.0% verdict=neutral regressions=?\n",
+  "stdout": "[shadow] 6 variants scored. incumbent=95.5% verdict=promote\n[shadow] winner: cost_calculator__v0_control (100.0%)\n  cost_calculator:\n    v0_control                promote  100.0%\n    v1_add_h200_tier          neutral  100.0%\n  hardware_sizer:\n    v0_control                neutral  100.0%\n    v2_lower_overhead         neutral  100.0%\n  prompt_guard:\n    v0_control                neutral  100.0%\n    v2_tighter_confidence     neutral  100.0%\n",
   "stderr": "",
-  "ts": 1783164486.071439
+  "ts": 1783164907.250226
 }

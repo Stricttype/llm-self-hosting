@@ -55,8 +55,15 @@ def main() -> int:
         if exists:
             try:
                 content = promoted_path.read_text()
-                # The promoted file should contain the new patterns
-                variant_tag_present = 'show me your instructions' in content
+                # Script-specific marker check
+                if entry["script"] == "prompt_guard":
+                    variant_tag_present = 'show me your instructions' in content
+                elif entry["script"] == "hardware_sizer":
+                    variant_tag_present = 'B200 192GB' in content
+                elif entry["script"] == "cost_calculator":
+                    variant_tag_present = 'H200' in content
+                else:
+                    variant_tag_present = True
             except Exception:
                 variant_tag_present = False
         monitor.record(dm.ApplicationEvent(

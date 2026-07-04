@@ -62,10 +62,8 @@ def size_model(model_params_b: float, quant: str, seq_len: int = 4096, concurren
         gpu = "H100 80GB / A100 80GB / M3 Ultra 192GB"
     elif total <= 140:
         gpu = "2x H100 / M5 Ultra 768GB"
-    elif total <= 192:
-        gpu = "B200 192GB (single GPU fits frontier models like Llama 4 70B FP16)"
     else:
-        gpu = "Multi-B200 cluster (frontier research / 400B+ MoE)"
+        gpu = "Multi-H100/B200 cluster"
     notes = f"weights={weights_gb:.1f}GB, kv={kv_gb:.2f}GB @ seq={seq_len} conc={concurrency}"
     return Sizing(weights_gb, kv_gb, total, gpu, notes)
 
@@ -84,4 +82,3 @@ if __name__ == "__main__":
         assert s.recommended_gpu
         print(f"{params}B {quant} seq={seq} conc={conc} → {s.total_gb:.1f}GB → {s.recommended_gpu}")
     print("\nOK: all sizing cases pass")
-__variant_id__ = "hardware_sizer__v1_add_b200_tier"

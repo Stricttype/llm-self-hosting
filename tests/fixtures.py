@@ -65,6 +65,12 @@ FIXTURES: tuple[Fixture, ...] = (
             "hardware_sizer.size_model(70, 'FP16').total_gb > 64"),
     Fixture("sizer_quant_ordering", "hardware_sizer",
             "hardware_sizer.size_model(70, 'Q4_K_M').total_gb < hardware_sizer.size_model(70, 'FP16').total_gb"),
+    # NEW fixture (Step 3 multi-script): tests B200 192GB tier recommendation
+    Fixture("sizer_70b_fp16_recommends_b200", "hardware_sizer",
+            "'B200 192GB' in hardware_sizer.size_model(70, 'FP16', seq_len=4096, concurrency=1).recommended_gpu"),
+    Fixture("sizer_400b_awq_recommends_multi_b200", "hardware_sizer",
+            # 400B AWQ-4 ≈ 220GB → should fall into 'Multi-B200 cluster' tier (post-promotion)
+            "'B200' in hardware_sizer.size_model(400, 'AWQ-4', seq_len=4096, concurrency=1).recommended_gpu"),
 
     # cost_calculator: crossover math holds
     Fixture("cost_high_volume_selfhost_wins", "cost_calculator",

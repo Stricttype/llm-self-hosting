@@ -90,4 +90,3 @@ if __name__ == "__main__":
     # Crossover sanity: at 80M/mo + 100% util on B200, self-host should win
     assert cost_self_host(80_000_000, "B200_spot", 1.0) < cost_api(80_000_000, "gpt-5.4")
     print("\nOK: cost calc handles 3 hosts × 3 utils × 4 volumes + crossover assertion")
-__variant_id__ = "cost_calculator__v0_control"

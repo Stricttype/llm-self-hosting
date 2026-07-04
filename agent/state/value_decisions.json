@@ -1,14 +1,14 @@
 {
   "source": "harvested_events.json",
-  "n_events": 7,
-  "n_kept": 7,
+  "n_events": 8,
+  "n_kept": 8,
   "n_dropped": 0,
   "drop_rate": 0.0,
   "mode": "live-mcp",
   "threshold": 0.01,
   "decisions": [
     {
-      "event_id": "loop_1783164378_harvest",
+      "event_id": "loop_1783164886_harvest",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -19,7 +19,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783164378_monitor",
+      "event_id": "loop_1783164886_monitor",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -30,7 +30,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783164378_promote",
+      "event_id": "loop_1783164886_promote",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -41,7 +41,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783164378_propose",
+      "event_id": "loop_1783164886_propose",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -52,7 +52,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783164378_shadow",
+      "event_id": "loop_1783164886_shadow",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -63,7 +63,7 @@
       "reason": "voi=0.1667_novel=0.500_sim=0.000"
     },
     {
-      "event_id": "loop_1783164378_value",
+      "event_id": "loop_1783164886_value",
       "type": "stage_completion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,
@@ -75,6 +75,17 @@
     },
     {
       "event_id": "promotion_2026-07-04T11:14:09+00:00",
+      "type": "promotion",
+      "novelty": 0.5,
+      "similarity_to_nearest": 0.0,
+      "outcome_proxy": 1.0,
+      "shadow_cost": 3.0,
+      "voi_score": 0.166667,
+      "decision": "keep",
+      "reason": "voi=0.1667_novel=0.500_sim=0.000"
+    },
+    {
+      "event_id": "promotion_2026-07-04T11:33:39.533839+00:00",
       "type": "promotion",
       "novelty": 0.5,
       "similarity_to_nearest": 0.0,

@@ -17,12 +17,12 @@ class QuantSpec:
 
 # 2026 reference table (verifiable against localaimaster.com / HuggingFace model cards)
 QUANTS: dict[str, QuantSpec] = {
-    "FP16":   QuantSpec(16.0, 0.10),
-    "Q8_0":   QuantSpec(8.0,  0.10),
-    "Q5_K_M": QuantSpec(5.5,  0.12),
-    "Q4_K_M": QuantSpec(4.5,  0.12),
-    "AWQ-4":  QuantSpec(4.0,  0.12),
-    "AWQ-3":  QuantSpec(3.0,  0.15),
+    "FP16":   QuantSpec(16.0, 0.08),
+    "Q8_0":   QuantSpec(8.0,  0.08),
+    "Q5_K_M": QuantSpec(5.5,  0.10),
+    "Q4_K_M": QuantSpec(4.5,  0.10),
+    "AWQ-4":  QuantSpec(4.0,  0.10),
+    "AWQ-3":  QuantSpec(3.0,  0.12),
 }
 
 
@@ -85,3 +85,4 @@ if __name__ == "__main__":
         print(f"{params}B {quant} seq={seq} conc={conc} → {s.total_gb:.1f}GB → {s.recommended_gpu}")
     print("\nOK: all sizing cases pass")
 __variant_id__ = "hardware_sizer__v1_add_b200_tier"
+__variant_id__ = "hardware_sizer__v2_lower_overhead"
