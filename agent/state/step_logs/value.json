@@ -3,7 +3,7 @@
   "cognitive_pattern": "critical",
   "command": "python3 agent/stages/value.py",
   "returncode": 0,
-  "stdout": "[value] 0 kept / 0 dropped (read-only stub)\n",
+  "stdout": "[value] 7 kept / 0 dropped (drop_rate=0%) \u2014 read-only mode\n[value] source: harvested_events.json\n  [KEEP] loop_1783164378_harvest                            VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783164378_monitor                            VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783164378_promote                            VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783164378_propose                            VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783164378_shadow                             VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  ... +2 more\n",
   "stderr": "",
-  "ts": 1783163729.466822
+  "ts": 1783164485.540092
 }

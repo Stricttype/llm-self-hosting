@@ -5,5 +5,5 @@
   "returncode": 0,
   "stdout": "[monitor] prompt_guard@v1_more_patterns: precision=1.00 demoted=False\n[monitor] 0 alerts (1 promoted artifacts tracked)\n",
   "stderr": "",
-  "ts": 1783163730.0412748
+  "ts": 1783164486.172805
 }

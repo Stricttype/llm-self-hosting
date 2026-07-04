@@ -5,5 +5,5 @@
   "returncode": 0,
   "stdout": "[propose] 3 candidates \u2192 /Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/\n  - v0_control: no change \u2014 control (4709 bytes)\n  - v1_more_patterns: extend OBVIOUS_INJECTION_PATTERNS +2 entries (4782 bytes)\n  - v2_tighter_confidence: tighten confidence thresholds (0.95\u21920.99, 0.7\u21920.85) (4721 bytes)\n",
   "stderr": "",
-  "ts": 1783163729.508806
+  "ts": 1783164485.5956328
 }

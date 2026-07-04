@@ -5,5 +5,5 @@
   "returncode": 0,
   "stdout": "[shadow] 3 variants scored. incumbent=100.0% verdict=neutral\n  v0_control                incumbent=100.0% candidate=100.0% verdict=neutral regressions=?\n  v1_more_patterns          incumbent=100.0% candidate=100.0% verdict=neutral regressions=?\n  v2_tighter_confidence     incumbent=100.0% candidate=100.0% verdict=neutral regressions=?\n",
   "stderr": "",
-  "ts": 1783163729.953967
+  "ts": 1783164486.071439
 }

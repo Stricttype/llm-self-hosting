@@ -1,5 +1,89 @@
 {
-  "kept": 0,
-  "dropped": 0,
-  "decisions": []
+  "source": "harvested_events.json",
+  "n_events": 7,
+  "n_kept": 7,
+  "n_dropped": 0,
+  "drop_rate": 0.0,
+  "mode": "live-mcp",
+  "threshold": 0.01,
+  "decisions": [
+    {
+      "event_id": "loop_1783164378_harvest",
+      "type": "stage_completion",
+      "novelty": 0.5,
+      "similarity_to_nearest": 0.0,
+      "outcome_proxy": 1.0,
+      "shadow_cost": 3.0,
+      "voi_score": 0.166667,
+      "decision": "keep",
+      "reason": "voi=0.1667_novel=0.500_sim=0.000"
+    },
+    {
+      "event_id": "loop_1783164378_monitor",
+      "type": "stage_completion",
+      "novelty": 0.5,
+      "similarity_to_nearest": 0.0,
+      "outcome_proxy": 1.0,
+      "shadow_cost": 3.0,
+      "voi_score": 0.166667,
+      "decision": "keep",
+      "reason": "voi=0.1667_novel=0.500_sim=0.000"
+    },
+    {
+      "event_id": "loop_1783164378_promote",
+      "type": "stage_completion",
+      "novelty": 0.5,
+      "similarity_to_nearest": 0.0,
+      "outcome_proxy": 1.0,
+      "shadow_cost": 3.0,
+      "voi_score": 0.166667,
+      "decision": "keep",
+      "reason": "voi=0.1667_novel=0.500_sim=0.000"
+    },
+    {
+      "event_id": "loop_1783164378_propose",
+      "type": "stage_completion",
+      "novelty": 0.5,
+      "similarity_to_nearest": 0.0,
+      "outcome_proxy": 1.0,
+      "shadow_cost": 3.0,
+      "voi_score": 0.166667,
+      "decision": "keep",
+      "reason": "voi=0.1667_novel=0.500_sim=0.000"
+    },
+    {
+      "event_id": "loop_1783164378_shadow",
+      "type": "stage_completion",
+      "novelty": 0.5,
+      "similarity_to_nearest": 0.0,
+      "outcome_proxy": 1.0,
+      "shadow_cost": 3.0,
+      "voi_score": 0.166667,
+      "decision": "keep",
+      "reason": "voi=0.1667_novel=0.500_sim=0.000"
+    },
+    {
+      "event_id": "loop_1783164378_value",
+      "type": "stage_completion",
+      "novelty": 0.5,
+      "similarity_to_nearest": 0.0,
+      "outcome_proxy": 1.0,
+      "shadow_cost": 3.0,
+      "voi_score": 0.166667,
+      "decision": "keep",
+      "reason": "voi=0.1667_novel=0.500_sim=0.000"
+    },
+    {
+      "event_id": "promotion_2026-07-04T11:14:09+00:00",
+      "type": "promotion",
+      "novelty": 0.5,
+      "similarity_to_nearest": 0.0,
+      "outcome_proxy": 1.0,
+      "shadow_cost": 3.0,
+      "voi_score": 0.166667,
+      "decision": "keep",
+      "reason": "voi=0.1667_novel=0.500_sim=0.000"
+    }
+  ],
+  "ts_summary": "diagnostic_only_per_claude_v2_review"
 }
