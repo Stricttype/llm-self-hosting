@@ -70,16 +70,6 @@ PRESETS: dict[str, VLLMConfig] = {
         ),
         notes="Set env VLLM_ALLOW_RUNTIME_LORA_UPDATING=True for hot-swap API.",
     ),
-    "blackwell_fp4": VLLMConfig(
-        goal="blackwell_fp4",
-        flags=(
-            "--max-num-batched-tokens 32768",
-            "--kv-cache-dtype fp4",
-            "--gpu-memory-utilization 0.95",
-            "--enable-chunked-prefill",
-        ),
-        notes="B200/Blackwell-only. FP4 KV cache + 32K batched tokens. 2-3x throughput vs FP8.",
-    ),
 }
 
 
@@ -105,4 +95,3 @@ if __name__ == "__main__":
     print(f"OK: {len(PRESETS)} vLLM presets generate cleanly")
     print("\n--- Example: max_throughput ---")
     print(generate("max_throughput", "meta-llama/Llama-3.3-70B-Instruct"))
-__variant_id__ = "vllm_config__v1_add_fp4_preset"

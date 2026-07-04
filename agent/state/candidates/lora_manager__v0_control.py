@@ -108,3 +108,4 @@ if __name__ == "__main__":
     print(f"     example adapter: {info.name} @ {info.path}")
 __variant_id__ = "lora_manager__v1_add_metrics"
 __variant_id__ = "lora_manager__v2_atomic_swap"
+__variant_id__ = "lora_manager__v0_control"

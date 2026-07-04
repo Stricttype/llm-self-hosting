@@ -52,9 +52,12 @@ def execute_step(step: dict) -> tuple[int, str, float]:
                 return 1, "", 0.0
     print(f"[run_loop] >> step: {step['id']} ({step['cognitive_pattern']})")
     t0 = time.time()
+    # Per-step timeout: VALUE's ruflo memory search is slow (loads ONNX model
+    # per call). 180s covers 14 events × ~4s each + margin.
+    timeout_s = 180 if step["id"] == "value" else 60
     proc = subprocess.run(
         cmd, shell=True, cwd=str(ROOT),
-        capture_output=True, text=True, timeout=60,
+        capture_output=True, text=True, timeout=timeout_s,
     )
     duration = time.time() - t0
     LOGS.mkdir(parents=True, exist_ok=True)

@@ -3,8 +3,8 @@
   "cognitive_pattern": "systems",
   "command": "python3 agent/stages/monitor.py",
   "returncode": 0,
-  "stdout": "[monitor] prompt_guard@v1_more_patterns: precision=1.00 demoted=False\n[monitor] hardware_sizer@v1_add_b200_tier: precision=1.00 demoted=False\n[monitor] cost_calculator@v0_control: precision=1.00 demoted=False\n[monitor] cost_calculator@v1_add_h200_tier: precision=1.00 demoted=False\n[monitor] 0 alerts (4 promoted artifacts tracked)\n",
+  "stdout": "[monitor] prompt_guard@v1_more_patterns: precision=1.00 demoted=False\n[monitor] hardware_sizer@v1_add_b200_tier: precision=1.00 demoted=False\n[monitor] cost_calculator@v0_control: precision=1.00 demoted=False\n[monitor] cost_calculator@v1_add_h200_tier: precision=1.00 demoted=False\n[monitor] lora_manager@v1_add_metrics: precision=1.00 demoted=False\n[monitor] lora_manager@v2_atomic_swap: precision=1.00 demoted=False\n[monitor] vllm_config@v1_add_fp4_preset: precision=1.00 demoted=False\n[monitor] 0 alerts (7 promoted artifacts tracked)\n",
   "stderr": "",
-  "ts": 1783165585.757285,
-  "duration_s": 0.04378485679626465
+  "ts": 1783166835.352906,
+  "duration_s": 0.04713106155395508
 }

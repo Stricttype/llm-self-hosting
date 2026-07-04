@@ -3,7 +3,9 @@
   "scripts": [
     "prompt_guard",
     "hardware_sizer",
-    "cost_calculator"
+    "cost_calculator",
+    "vllm_config",
+    "lora_manager"
   ],
   "by_script": {
     "prompt_guard": [
@@ -70,6 +72,56 @@
         "size_bytes": 0,
         "noop": true
       }
+    ],
+    "vllm_config": [
+      {
+        "variant_id": "v0_control",
+        "script": "vllm_config",
+        "description": "no change (control)",
+        "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/vllm_config__v0_control.py",
+        "size_bytes": 3623
+      },
+      {
+        "variant_id": "v1_add_fp4_preset",
+        "script": "vllm_config",
+        "description": "add Blackwell FP4 preset (2-3x throughput on B200) [already-promoted, no-op]",
+        "path": null,
+        "size_bytes": 0,
+        "noop": true
+      },
+      {
+        "variant_id": "v2_eagle3_default",
+        "script": "vllm_config",
+        "description": "add EAGLE-3 speculative decoding preset (3x at batch 1-8) [already-promoted, no-op]",
+        "path": null,
+        "size_bytes": 0,
+        "noop": true
+      }
+    ],
+    "lora_manager": [
+      {
+        "variant_id": "v0_control",
+        "script": "lora_manager",
+        "description": "no change (control)",
+        "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/lora_manager__v0_control.py",
+        "size_bytes": 4112
+      },
+      {
+        "variant_id": "v1_add_metrics",
+        "script": "lora_manager",
+        "description": "add cache_hit_rate() metric [already-promoted, no-op]",
+        "path": null,
+        "size_bytes": 0,
+        "noop": true
+      },
+      {
+        "variant_id": "v2_atomic_swap",
+        "script": "lora_manager",
+        "description": "add atomic_swap() for zero-gap adapter replacement [already-promoted, no-op]",
+        "path": null,
+        "size_bytes": 0,
+        "noop": true
+      }
     ]
   },
   "candidates": [
@@ -131,8 +183,54 @@
       "path": null,
       "size_bytes": 0,
       "noop": true
+    },
+    {
+      "variant_id": "v0_control",
+      "script": "vllm_config",
+      "description": "no change (control)",
+      "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/vllm_config__v0_control.py",
+      "size_bytes": 3623
+    },
+    {
+      "variant_id": "v1_add_fp4_preset",
+      "script": "vllm_config",
+      "description": "add Blackwell FP4 preset (2-3x throughput on B200) [already-promoted, no-op]",
+      "path": null,
+      "size_bytes": 0,
+      "noop": true
+    },
+    {
+      "variant_id": "v2_eagle3_default",
+      "script": "vllm_config",
+      "description": "add EAGLE-3 speculative decoding preset (3x at batch 1-8) [already-promoted, no-op]",
+      "path": null,
+      "size_bytes": 0,
+      "noop": true
+    },
+    {
+      "variant_id": "v0_control",
+      "script": "lora_manager",
+      "description": "no change (control)",
+      "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/lora_manager__v0_control.py",
+      "size_bytes": 4112
+    },
+    {
+      "variant_id": "v1_add_metrics",
+      "script": "lora_manager",
+      "description": "add cache_hit_rate() metric [already-promoted, no-op]",
+      "path": null,
+      "size_bytes": 0,
+      "noop": true
+    },
+    {
+      "variant_id": "v2_atomic_swap",
+      "script": "lora_manager",
+      "description": "add atomic_swap() for zero-gap adapter replacement [already-promoted, no-op]",
+      "path": null,
+      "size_bytes": 0,
+      "noop": true
     }
   ],
-  "n_total": 8,
+  "n_total": 14,
   "mode": "real_multi_script"
 }

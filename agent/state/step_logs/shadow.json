@@ -3,8 +3,8 @@
   "cognitive_pattern": "critical",
   "command": "python3 agent/stages/shadow.py",
   "returncode": 0,
-  "stdout": "[shadow] 5 variants scored. incumbent=100.0% verdict=neutral\n  cost_calculator:\n    v0_control                neutral  100.0%\n  hardware_sizer:\n    v0_control                neutral  100.0%\n    v2_lower_overhead         neutral  100.0%\n  prompt_guard:\n    v0_control                neutral  100.0%\n    v2_tighter_confidence     neutral  100.0%\n",
+  "stdout": "[shadow] 7 variants scored. incumbent=96.3% verdict=neutral\n  cost_calculator:\n    v0_control                neutral  96.3%\n  hardware_sizer:\n    v0_control                neutral  96.3%\n    v2_lower_overhead         neutral  96.3%\n  lora_manager:\n    v0_control                neutral  96.3%\n  prompt_guard:\n    v0_control                neutral  96.3%\n    v2_tighter_confidence     neutral  96.3%\n  vllm_config:\n    v0_control                neutral  96.3%\n",
   "stderr": "",
-  "ts": 1783165585.05522,
-  "duration_s": 0.6638998985290527
+  "ts": 1783166834.3528588,
+  "duration_s": 0.9576539993286133
 }

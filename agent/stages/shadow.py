@@ -54,9 +54,12 @@ def score_one(label: str, candidate_path: Path | None, target_script: str) -> di
                 passes_idx = tokens.index("passes,")
                 if passes_idx > 0:
                     out["delta_passes"] = int(tokens[passes_idx - 1].replace("+", ""))
+                # "0 new regressions" → regs_idx - 2 is "0", not "new"
                 regs_idx = tokens.index("regressions")
-                if regs_idx > 0:
-                    out["delta_regressions"] = int(tokens[regs_idx - 1])
+                if regs_idx >= 2 and tokens[regs_idx - 2].isdigit() or (regs_idx >= 2 and tokens[regs_idx - 2].startswith("-")):
+                    out["delta_regressions"] = int(tokens[regs_idx - 2])
+                else:
+                    out["delta_regressions"] = 0  # no regressions mentioned
             except (ValueError, IndexError):
                 pass
         elif line.startswith("PROMOTE"):
@@ -88,9 +91,9 @@ def main() -> int:
         s = score_one(f"{target_script}__{vid}", snap, target_script)
         scores.append(s)
 
-    # Pick winner: highest pass rate, zero regressions, most improvement over incumbent
+    # Pick winner: highest pass rate, zero NEW regressions (delta_regressions), most improvement
     incumbent_pass_rate = scores[0].get("incumbent_pass_rate", 0.0) if scores else 0.0
-    eligible = [s for s in scores if s.get("candidate_regressions", 99) == 0
+    eligible = [s for s in scores if s.get("delta_regressions", 99) == 0
                                        and s.get("delta_passes", 0) > 0
                                        and s.get("verdict") == "promote"]
     if eligible:

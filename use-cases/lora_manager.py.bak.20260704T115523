@@ -50,14 +50,6 @@ class LoRAManager:
         self._request("POST", "/v1/unload_lora_adapter", {"lora_name": name})
         return True
 
-
-    def cache_hit_rate(self) -> float:
-        """Fraction of recent adapter requests served from GPU slots (vs CPU/disk).
-        Per Ruflo monitoring: track this to size max_loras vs max_cpu_loras.
-        """
-        # Stub: real impl would track hits/misses
-        return 1.0
-
     def list_adapters(self) -> list[AdapterInfo]:
         """vLLM doesn't expose a GET endpoint for adapters in 2026; parse from /metrics."""
         if self.dry_run:
@@ -78,15 +70,6 @@ class LoRAManager:
         except Exception:
             return []
 
-
-    def atomic_swap(self, name: str, new_path: str) -> AdapterInfo:
-        """Atomically replace an existing adapter: unload old, load new.
-        Single API call avoids brief gap where neither is available.
-        """
-        if not self.dry_run:
-            self._request("POST", "/v1/unload_lora_adapter", {"lora_name": name})
-        return self.load(name, new_path)
-
     def health(self) -> bool:
         if self.dry_run:
             return True
@@ -106,5 +89,3 @@ if __name__ == "__main__":
     assert mgr.unload("sql-expert")
     print("OK: dry-run LoRA manager: load/unload/health all pass")
     print(f"     example adapter: {info.name} @ {info.path}")
-__variant_id__ = "lora_manager__v1_add_metrics"
-__variant_id__ = "lora_manager__v2_atomic_swap"

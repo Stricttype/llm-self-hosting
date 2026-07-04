@@ -43,6 +43,7 @@ _SAFE_BUILTINS = {
     "int": int, "float": float, "str": str, "bool": bool,
     "list": list, "tuple": tuple, "set": set, "dict": dict,
     "isinstance": isinstance, "type": type,
+    "hasattr": hasattr, "getattr": getattr,
 }
 
 
@@ -55,6 +56,11 @@ FIXTURES: tuple[Fixture, ...] = (
             "'--kv-cache-dtype fp8' in vllm_config.PRESETS['max_throughput'].flags"),
     Fixture("vllm_multi_lora_has_endpoint_flag", "vllm_config",
             "'--enable-lora' in vllm_config.PRESETS['multi_lora'].flags"),
+    # NEW fixtures (Step 3 multi-script): test new presets
+    Fixture("vllm_blackwell_fp4_present", "vllm_config",
+            "'blackwell_fp4' in vllm_config.PRESETS"),
+    Fixture("vllm_eagle3_throughput_present", "vllm_config",
+            "'eagle3_throughput' in vllm_config.PRESETS"),
 
     # hardware_sizer: must recommend higher tier for bigger models
     Fixture("sizer_7b_fits_24gb", "hardware_sizer",
@@ -105,6 +111,11 @@ FIXTURES: tuple[Fixture, ...] = (
             "lora_manager.LoRAManager(dry_run=True).unload('x') == True"),
     Fixture("lora_dryrun_health", "lora_manager",
             "lora_manager.LoRAManager(dry_run=True).health() == True"),
+    # NEW fixtures (Step 3): test new methods
+    Fixture("lora_has_cache_hit_rate", "lora_manager",
+            "hasattr(lora_manager.LoRAManager(dry_run=True), 'cache_hit_rate')"),
+    Fixture("lora_has_atomic_swap", "lora_manager",
+            "hasattr(lora_manager.LoRAManager(dry_run=True), 'atomic_swap')"),
 
     # llm_probe: unreachable detection
     Fixture("probe_detects_unreachable", "llm_probe",

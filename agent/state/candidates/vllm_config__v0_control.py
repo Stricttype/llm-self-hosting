@@ -106,3 +106,4 @@ if __name__ == "__main__":
     print("\n--- Example: max_throughput ---")
     print(generate("max_throughput", "meta-llama/Llama-3.3-70B-Instruct"))
 __variant_id__ = "vllm_config__v1_add_fp4_preset"
+__variant_id__ = "vllm_config__v0_control"

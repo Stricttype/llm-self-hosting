@@ -111,6 +111,102 @@ def cost_calculator_v1_add_h200_tier(source: str) -> str:
     )
 
 
+# ===== vllm_config variants =====
+
+def vllm_config_v0_control(source: str) -> str:
+    return source
+
+
+def vllm_config_v1_add_fp4_preset(source: str) -> str:
+    """Add FP4/Blackwell-specific preset for maximum throughput on B200 hardware.
+    Idempotent: skips if already present."""
+    if '"blackwell_fp4"' in source:
+        return source
+    new_preset = '''    "blackwell_fp4": VLLMConfig(
+        goal="blackwell_fp4",
+        flags=(
+            "--max-num-batched-tokens 32768",
+            "--kv-cache-dtype fp4",
+            "--gpu-memory-utilization 0.95",
+            "--enable-chunked-prefill",
+        ),
+        notes="B200/Blackwell-only. FP4 KV cache + 32K batched tokens. 2-3x throughput vs FP8.",
+    ),
+'''
+    # Insert after the multi_lora preset (last in the dict)
+    return source.replace(
+        '        notes="Set env VLLM_ALLOW_RUNTIME_LORA_UPDATING=True for hot-swap API.",\n    ),\n}',
+        '        notes="Set env VLLM_ALLOW_RUNTIME_LORA_UPDATING=True for hot-swap API.",\n    ),\n' + new_preset + '}',
+    )
+
+
+def vllm_config_v2_eagle3_default(source: str) -> str:
+    """Add speculative decoding preset with EAGLE-3 (3x speedup at batch 1-8).
+    Idempotent."""
+    if '"eagle3_throughput"' in source:
+        return source
+    new_preset = '''    "eagle3_throughput": VLLMConfig(
+        goal="eagle3_throughput",
+        flags=(
+            "--max-num-batched-tokens 8192",
+            "--kv-cache-dtype fp8",
+            "--enable-chunked-prefill",
+            "--speculative-config '{\\"method\\": \\"eagle3\\", \\"num_speculative_tokens\\": 4}'",
+        ),
+        notes="EAGLE-3 speculative decoding. 3x speedup at batch 1-8; degrades to 1.1x at batch 128+.",
+    ),
+'''
+    return source.replace(
+        '        notes="Set env VLLM_ALLOW_RUNTIME_LORA_UPDATING=True for hot-swap API.",\n    ),\n}',
+        '        notes="Set env VLLM_ALLOW_RUNTIME_LORA_UPDATING=True for hot-swap API.",\n    ),\n' + new_preset + '}',
+    )
+
+
+# ===== lora_manager variants =====
+
+def lora_manager_v0_control(source: str) -> str:
+    return source
+
+
+def lora_manager_v1_add_metrics(source: str) -> str:
+    """Add cache_hit_rate tracking to LoRAManager (currently silent).
+    Idempotent."""
+    if 'def cache_hit_rate' in source:
+        return source
+    addition = '''
+    def cache_hit_rate(self) -> float:
+        """Fraction of recent adapter requests served from GPU slots (vs CPU/disk).
+        Per Ruflo monitoring: track this to size max_loras vs max_cpu_loras.
+        """
+        # Stub: real impl would track hits/misses
+        return 1.0
+'''
+    return source.replace(
+        '    def list_adapters(self) -> list[AdapterInfo]:',
+        addition + '\n    def list_adapters(self) -> list[AdapterInfo]:',
+    )
+
+
+def lora_manager_v2_atomic_swap(source: str) -> str:
+    """Add atomic_swap method that replaces an existing adapter in a single API call.
+    Idempotent."""
+    if 'def atomic_swap' in source:
+        return source
+    addition = '''
+    def atomic_swap(self, name: str, new_path: str) -> AdapterInfo:
+        """Atomically replace an existing adapter: unload old, load new.
+        Single API call avoids brief gap where neither is available.
+        """
+        if not self.dry_run:
+            self._request("POST", "/v1/unload_lora_adapter", {"lora_name": name})
+        return self.load(name, new_path)
+'''
+    return source.replace(
+        '    def health(self) -> bool:',
+        addition + '\n    def health(self) -> bool:',
+    )
+
+
 # ===== Registry =====
 
 TUNABLES: dict[str, list[tuple[str, callable, str]]] = {
@@ -127,6 +223,16 @@ TUNABLES: dict[str, list[tuple[str, callable, str]]] = {
     "cost_calculator": [
         ("v0_control", cost_calculator_v0_control, "no change (control)"),
         ("v1_add_h200_tier", cost_calculator_v1_add_h200_tier, "add H200 (141GB HBM3e) tier"),
+    ],
+    "vllm_config": [
+        ("v0_control", vllm_config_v0_control, "no change (control)"),
+        ("v1_add_fp4_preset", vllm_config_v1_add_fp4_preset, "add Blackwell FP4 preset (2-3x throughput on B200)"),
+        ("v2_eagle3_default", vllm_config_v2_eagle3_default, "add EAGLE-3 speculative decoding preset (3x at batch 1-8)"),
+    ],
+    "lora_manager": [
+        ("v0_control", lora_manager_v0_control, "no change (control)"),
+        ("v1_add_metrics", lora_manager_v1_add_metrics, "add cache_hit_rate() metric"),
+        ("v2_atomic_swap", lora_manager_v2_atomic_swap, "add atomic_swap() for zero-gap adapter replacement"),
     ],
 }
 

@@ -1,5 +1,5 @@
 {
-  "count": 9,
+  "count": 85,
   "events": [
     {
       "event_id": "loop_start_1783165432",
@@ -90,6 +90,782 @@
       "passed": true,
       "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
       "ts": 1783165574.8701901
+    },
+    {
+      "event_id": "loop_1783165574_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.05s",
+      "duration_s": 0.05004596710205078,
+      "ts": 1783165574.875017
+    },
+    {
+      "event_id": "loop_1783165585_value",
+      "type": "stage_completion",
+      "stage": "value",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage value (critical) completed in 10.09s",
+      "duration_s": 10.090538024902344,
+      "ts": 1783165574.92549
+    },
+    {
+      "event_id": "loop_1783165585_propose",
+      "type": "stage_completion",
+      "stage": "propose",
+      "cognitive_pattern": "lateral",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage propose (lateral) completed in 0.04s",
+      "duration_s": 0.038169145584106445,
+      "ts": 1783165585.016584
+    },
+    {
+      "event_id": "loop_1783165585_shadow",
+      "type": "stage_completion",
+      "stage": "shadow",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage shadow (critical) completed in 0.66s",
+      "duration_s": 0.6638998985290527,
+      "ts": 1783165585.05522
+    },
+    {
+      "event_id": "loop_1783165585_promote",
+      "type": "stage_completion",
+      "stage": "promote",
+      "cognitive_pattern": "convergent",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage promote (convergent) completed in 0.04s",
+      "duration_s": 0.03721284866333008,
+      "ts": 1783165585.7195451
+    },
+    {
+      "event_id": "loop_1783165585_monitor",
+      "type": "stage_completion",
+      "stage": "monitor",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage monitor (systems) completed in 0.04s",
+      "duration_s": 0.04378485679626465,
+      "ts": 1783165585.757285
+    },
+    {
+      "event_id": "loop_complete_1783165585",
+      "type": "loop_complete",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop completed: 6/6 stages OK",
+      "ts": 1783165585.8014998
+    },
+    {
+      "event_id": "loop_start_1783165988",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783165988.4572248
+    },
+    {
+      "event_id": "loop_1783165988_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.03s",
+      "duration_s": 0.0345151424407959,
+      "ts": 1783165988.457346
+    },
+    {
+      "event_id": "loop_1783166007_value",
+      "type": "stage_completion",
+      "stage": "value",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage value (critical) completed in 19.24s",
+      "duration_s": 19.23664689064026,
+      "ts": 1783165988.492321
+    },
+    {
+      "event_id": "loop_1783166007_propose",
+      "type": "stage_completion",
+      "stage": "propose",
+      "cognitive_pattern": "lateral",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage propose (lateral) completed in 0.04s",
+      "duration_s": 0.035056114196777344,
+      "ts": 1783166007.72946
+    },
+    {
+      "event_id": "loop_1783166009_shadow",
+      "type": "stage_completion",
+      "stage": "shadow",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage shadow (critical) completed in 1.40s",
+      "duration_s": 1.396291971206665,
+      "ts": 1783166007.7649071
+    },
+    {
+      "event_id": "loop_1783166009_promote",
+      "type": "stage_completion",
+      "stage": "promote",
+      "cognitive_pattern": "convergent",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage promote (convergent) completed in 0.05s",
+      "duration_s": 0.04765796661376953,
+      "ts": 1783166009.161727
+    },
+    {
+      "event_id": "loop_1783166009_monitor",
+      "type": "stage_completion",
+      "stage": "monitor",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage monitor (systems) completed in 0.05s",
+      "duration_s": 0.04920601844787598,
+      "ts": 1783166009.209929
+    },
+    {
+      "event_id": "loop_complete_1783166009",
+      "type": "loop_complete",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop completed: 6/6 stages OK",
+      "ts": 1783166009.2596679
+    },
+    {
+      "event_id": "loop_start_1783166094",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166094.2537868
+    },
+    {
+      "event_id": "loop_1783166094_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.04s",
+      "duration_s": 0.03507709503173828,
+      "ts": 1783166094.253875
+    },
+    {
+      "event_id": "loop_1783166122_value",
+      "type": "stage_completion",
+      "stage": "value",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage value (critical) completed in 28.13s",
+      "duration_s": 28.125598192214966,
+      "ts": 1783166094.289424
+    },
+    {
+      "event_id": "loop_1783166122_propose",
+      "type": "stage_completion",
+      "stage": "propose",
+      "cognitive_pattern": "lateral",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage propose (lateral) completed in 0.04s",
+      "duration_s": 0.03662896156311035,
+      "ts": 1783166122.415531
+    },
+    {
+      "event_id": "loop_1783166123_shadow",
+      "type": "stage_completion",
+      "stage": "shadow",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage shadow (critical) completed in 1.37s",
+      "duration_s": 1.3696351051330566,
+      "ts": 1783166122.452662
+    },
+    {
+      "event_id": "loop_1783166123_promote",
+      "type": "stage_completion",
+      "stage": "promote",
+      "cognitive_pattern": "convergent",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage promote (convergent) completed in 0.04s",
+      "duration_s": 0.038012027740478516,
+      "ts": 1783166123.822743
+    },
+    {
+      "event_id": "loop_1783166123_monitor",
+      "type": "stage_completion",
+      "stage": "monitor",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage monitor (systems) completed in 0.04s",
+      "duration_s": 0.04232192039489746,
+      "ts": 1783166123.861187
+    },
+    {
+      "event_id": "loop_complete_1783166123",
+      "type": "loop_complete",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop completed: 6/6 stages OK",
+      "ts": 1783166123.9039948
+    },
+    {
+      "event_id": "loop_start_1783166129",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166129.351954
+    },
+    {
+      "event_id": "loop_1783166129_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.03s",
+      "duration_s": 0.033904075622558594,
+      "ts": 1783166129.3520489
+    },
+    {
+      "event_id": "loop_1783166167_value",
+      "type": "stage_completion",
+      "stage": "value",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage value (critical) completed in 38.18s",
+      "duration_s": 38.17841196060181,
+      "ts": 1783166129.386431
+    },
+    {
+      "event_id": "loop_1783166167_propose",
+      "type": "stage_completion",
+      "stage": "propose",
+      "cognitive_pattern": "lateral",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage propose (lateral) completed in 0.04s",
+      "duration_s": 0.039405107498168945,
+      "ts": 1783166167.5654578
+    },
+    {
+      "event_id": "loop_1783166169_shadow",
+      "type": "stage_completion",
+      "stage": "shadow",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage shadow (critical) completed in 1.43s",
+      "duration_s": 1.4301409721374512,
+      "ts": 1783166167.605342
+    },
+    {
+      "event_id": "loop_1783166169_promote",
+      "type": "stage_completion",
+      "stage": "promote",
+      "cognitive_pattern": "convergent",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage promote (convergent) completed in 0.04s",
+      "duration_s": 0.043324947357177734,
+      "ts": 1783166169.0359879
+    },
+    {
+      "event_id": "loop_1783166169_monitor",
+      "type": "stage_completion",
+      "stage": "monitor",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage monitor (systems) completed in 0.05s",
+      "duration_s": 0.0451970100402832,
+      "ts": 1783166169.079777
+    },
+    {
+      "event_id": "loop_complete_1783166169",
+      "type": "loop_complete",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop completed: 6/6 stages OK",
+      "ts": 1783166169.1254048
+    },
+    {
+      "event_id": "loop_start_1783166174",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166174.3118222
+    },
+    {
+      "event_id": "loop_1783166174_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.04s",
+      "duration_s": 0.035659074783325195,
+      "ts": 1783166174.311907
+    },
+    {
+      "event_id": "loop_1783166220_value",
+      "type": "stage_completion",
+      "stage": "value",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage value (critical) completed in 46.32s",
+      "duration_s": 46.32089805603027,
+      "ts": 1783166174.348062
+    },
+    {
+      "event_id": "loop_1783166220_propose",
+      "type": "stage_completion",
+      "stage": "propose",
+      "cognitive_pattern": "lateral",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage propose (lateral) completed in 0.04s",
+      "duration_s": 0.03784799575805664,
+      "ts": 1783166220.669538
+    },
+    {
+      "event_id": "loop_1783166221_shadow",
+      "type": "stage_completion",
+      "stage": "shadow",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage shadow (critical) completed in 1.21s",
+      "duration_s": 1.2133502960205078,
+      "ts": 1783166220.7078369
+    },
+    {
+      "event_id": "loop_1783166221_promote",
+      "type": "stage_completion",
+      "stage": "promote",
+      "cognitive_pattern": "convergent",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage promote (convergent) completed in 0.04s",
+      "duration_s": 0.04299283027648926,
+      "ts": 1783166221.921668
+    },
+    {
+      "event_id": "loop_1783166222_monitor",
+      "type": "stage_completion",
+      "stage": "monitor",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage monitor (systems) completed in 0.05s",
+      "duration_s": 0.04551815986633301,
+      "ts": 1783166221.965204
+    },
+    {
+      "event_id": "loop_complete_1783166222",
+      "type": "loop_complete",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop completed: 6/6 stages OK",
+      "ts": 1783166222.011281
+    },
+    {
+      "event_id": "loop_start_1783166226",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166226.301763
+    },
+    {
+      "event_id": "loop_1783166226_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.03s",
+      "duration_s": 0.03334617614746094,
+      "ts": 1783166226.301854
+    },
+    {
+      "event_id": "loop_1783166284_value",
+      "type": "stage_completion",
+      "stage": "value",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage value (critical) completed in 57.83s",
+      "duration_s": 57.828341007232666,
+      "ts": 1783166226.335707
+    },
+    {
+      "event_id": "loop_1783166284_propose",
+      "type": "stage_completion",
+      "stage": "propose",
+      "cognitive_pattern": "lateral",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage propose (lateral) completed in 0.04s",
+      "duration_s": 0.040487051010131836,
+      "ts": 1783166284.164727
+    },
+    {
+      "event_id": "loop_1783166285_shadow",
+      "type": "stage_completion",
+      "stage": "shadow",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage shadow (critical) completed in 1.00s",
+      "duration_s": 1.0040347576141357,
+      "ts": 1783166284.205763
+    },
+    {
+      "event_id": "loop_1783166285_promote",
+      "type": "stage_completion",
+      "stage": "promote",
+      "cognitive_pattern": "convergent",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage promote (convergent) completed in 0.04s",
+      "duration_s": 0.043440818786621094,
+      "ts": 1783166285.2102752
+    },
+    {
+      "event_id": "loop_1783166285_monitor",
+      "type": "stage_completion",
+      "stage": "monitor",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage monitor (systems) completed in 0.04s",
+      "duration_s": 0.04396700859069824,
+      "ts": 1783166285.2542021
+    },
+    {
+      "event_id": "loop_complete_1783166285",
+      "type": "loop_complete",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop completed: 6/6 stages OK",
+      "ts": 1783166285.298611
+    },
+    {
+      "event_id": "loop_start_1783166289",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166289.9186969
+    },
+    {
+      "event_id": "loop_1783166289_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.04s",
+      "duration_s": 0.03653693199157715,
+      "ts": 1783166289.918797
+    },
+    {
+      "event_id": "loop_start_1783166354",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166354.307789
+    },
+    {
+      "event_id": "loop_1783166354_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.04s",
+      "duration_s": 0.04030895233154297,
+      "ts": 1783166354.307932
+    },
+    {
+      "event_id": "loop_start_1783166420",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166420.136031
+    },
+    {
+      "event_id": "loop_1783166420_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.04s",
+      "duration_s": 0.0390620231628418,
+      "ts": 1783166420.13621
+    },
+    {
+      "event_id": "loop_1783166514_value",
+      "type": "stage_completion",
+      "stage": "value",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage value (critical) completed in 94.36s",
+      "duration_s": 94.35602498054504,
+      "ts": 1783166420.175812
+    },
+    {
+      "event_id": "loop_1783166514_propose",
+      "type": "stage_completion",
+      "stage": "propose",
+      "cognitive_pattern": "lateral",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage propose (lateral) completed in 0.05s",
+      "duration_s": 0.04964399337768555,
+      "ts": 1783166514.53307
+    },
+    {
+      "event_id": "loop_1783166515_shadow",
+      "type": "stage_completion",
+      "stage": "shadow",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage shadow (critical) completed in 1.15s",
+      "duration_s": 1.153019905090332,
+      "ts": 1783166514.583263
+    },
+    {
+      "event_id": "loop_1783166515_promote",
+      "type": "stage_completion",
+      "stage": "promote",
+      "cognitive_pattern": "convergent",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage promote (convergent) completed in 0.05s",
+      "duration_s": 0.049655914306640625,
+      "ts": 1783166515.736972
+    },
+    {
+      "event_id": "loop_1783166515_monitor",
+      "type": "stage_completion",
+      "stage": "monitor",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage monitor (systems) completed in 0.05s",
+      "duration_s": 0.05428290367126465,
+      "ts": 1783166515.787189
+    },
+    {
+      "event_id": "loop_complete_1783166515",
+      "type": "loop_complete",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop completed: 6/6 stages OK",
+      "ts": 1783166515.842127
+    },
+    {
+      "event_id": "loop_start_1783166521",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166521.625185
+    },
+    {
+      "event_id": "loop_1783166521_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.05s",
+      "duration_s": 0.04558205604553223,
+      "ts": 1783166521.625312
+    },
+    {
+      "event_id": "loop_1783166607_value",
+      "type": "stage_completion",
+      "stage": "value",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage value (critical) completed in 85.85s",
+      "duration_s": 85.84772610664368,
+      "ts": 1783166521.671639
+    },
+    {
+      "event_id": "loop_1783166607_propose",
+      "type": "stage_completion",
+      "stage": "propose",
+      "cognitive_pattern": "lateral",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage propose (lateral) completed in 0.06s",
+      "duration_s": 0.0566558837890625,
+      "ts": 1783166607.520534
+    },
+    {
+      "event_id": "loop_1783166608_shadow",
+      "type": "stage_completion",
+      "stage": "shadow",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage shadow (critical) completed in 1.01s",
+      "duration_s": 1.0096819400787354,
+      "ts": 1783166607.577769
+    },
+    {
+      "event_id": "loop_1783166608_promote",
+      "type": "stage_completion",
+      "stage": "promote",
+      "cognitive_pattern": "convergent",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage promote (convergent) completed in 0.04s",
+      "duration_s": 0.04213404655456543,
+      "ts": 1783166608.587998
+    },
+    {
+      "event_id": "loop_1783166608_monitor",
+      "type": "stage_completion",
+      "stage": "monitor",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage monitor (systems) completed in 0.05s",
+      "duration_s": 0.052008867263793945,
+      "ts": 1783166608.630742
+    },
+    {
+      "event_id": "loop_complete_1783166608",
+      "type": "loop_complete",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop completed: 6/6 stages OK",
+      "ts": 1783166608.683273
+    },
+    {
+      "event_id": "loop_start_1783166630",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166630.218287
+    },
+    {
+      "event_id": "loop_1783166630_harvest",
+      "type": "stage_completion",
+      "stage": "harvest",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage harvest (systems) completed in 0.04s",
+      "duration_s": 0.03850293159484863,
+      "ts": 1783166630.218389
+    },
+    {
+      "event_id": "loop_1783166722_value",
+      "type": "stage_completion",
+      "stage": "value",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage value (critical) completed in 92.43s",
+      "duration_s": 92.42537117004395,
+      "ts": 1783166630.257524
+    },
+    {
+      "event_id": "loop_1783166722_propose",
+      "type": "stage_completion",
+      "stage": "propose",
+      "cognitive_pattern": "lateral",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage propose (lateral) completed in 0.05s",
+      "duration_s": 0.05216383934020996,
+      "ts": 1783166722.684292
+    },
+    {
+      "event_id": "loop_1783166723_shadow",
+      "type": "stage_completion",
+      "stage": "shadow",
+      "cognitive_pattern": "critical",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage shadow (critical) completed in 1.02s",
+      "duration_s": 1.0178570747375488,
+      "ts": 1783166722.736939
+    },
+    {
+      "event_id": "loop_1783166723_promote",
+      "type": "stage_completion",
+      "stage": "promote",
+      "cognitive_pattern": "convergent",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage promote (convergent) completed in 0.05s",
+      "duration_s": 0.04508185386657715,
+      "ts": 1783166723.75529
+    },
+    {
+      "event_id": "loop_1783166723_monitor",
+      "type": "stage_completion",
+      "stage": "monitor",
+      "cognitive_pattern": "systems",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop stage monitor (systems) completed in 0.05s",
+      "duration_s": 0.04905414581298828,
+      "ts": 1783166723.800938
+    },
+    {
+      "event_id": "loop_complete_1783166723",
+      "type": "loop_complete",
+      "outcome": "passed",
+      "passed": true,
+      "context": "closed-loop completed: 6/6 stages OK",
+      "ts": 1783166723.850564
+    },
+    {
+      "event_id": "loop_start_1783166734",
+      "type": "loop_start",
+      "outcome": "started",
+      "passed": true,
+      "context": "closed-loop workflow LLM Self-Hosting Closed-Improvement Loop (Step 2/3 minimal) started",
+      "ts": 1783166734.8954382
     }
   ],
   "synthetic": false

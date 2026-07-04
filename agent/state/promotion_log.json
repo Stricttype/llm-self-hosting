@@ -32,13 +32,37 @@
       "winner_pass_rate": 100.0,
       "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/cost_calculator.py.bak.20260704T113700",
       "promoted_at": "2026-07-04T11:37:00.729636+00:00"
+    },
+    {
+      "script": "lora_manager",
+      "variant": "v1_add_metrics",
+      "incumbent_pass_rate": 85.2,
+      "winner_pass_rate": 88.9,
+      "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/lora_manager.py.bak.20260704T115523",
+      "promoted_at": "2026-07-04T11:55:23.857569+00:00"
+    },
+    {
+      "script": "lora_manager",
+      "variant": "v2_atomic_swap",
+      "incumbent_pass_rate": 88.9,
+      "winner_pass_rate": 92.6,
+      "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/lora_manager.py.bak.20260704T115609",
+      "promoted_at": "2026-07-04T11:56:09.075889+00:00"
+    },
+    {
+      "script": "vllm_config",
+      "variant": "v1_add_fp4_preset",
+      "incumbent_pass_rate": 92.6,
+      "winner_pass_rate": 96.3,
+      "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/vllm_config.py.bak.20260704T115701",
+      "promoted_at": "2026-07-04T11:57:01.960285+00:00"
     }
   ],
-  "n_evaluated": 8,
-  "ts": "2026-07-04T11:46:25.753049+00:00",
-  "runs": 16,
+  "n_evaluated": 14,
+  "ts": "2026-07-04T12:07:15.348817+00:00",
+  "runs": 26,
   "last_attempt": {
-    "ts": "2026-07-04T11:46:25.753049+00:00",
+    "ts": "2026-07-04T12:07:15.348817+00:00",
     "verdict": "neutral",
     "winner": null
   },

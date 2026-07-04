@@ -3,8 +3,8 @@
   "cognitive_pattern": "critical",
   "command": "python3 agent/stages/value.py",
   "returncode": 0,
-  "stdout": "[value] 9 kept / 0 dropped (drop_rate=0%) \u2014 read-only mode\n[value] source: harvested_events.json\n  [KEEP] loop_start_1783165432                              VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783165432_harvest                            VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783165433_value                              VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783165433_propose                            VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783165434_shadow                             VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  ... +4 more\n",
+  "stdout": "[value] 85 kept / 0 dropped (drop_rate=0%) \u2014 read-only mode\n[value] source: harvested_events.json\n  [KEEP] loop_start_1783165432                              VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783165432_harvest                            VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783165433_value                              VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783165433_propose                            VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  [KEEP] loop_1783165434_shadow                             VoI=0.1667 novel=0.500 reason=voi=0.1667_novel=0.500_sim=0.000\n  ... +80 more\n",
   "stderr": "",
-  "ts": 1783165574.92549,
-  "duration_s": 10.090538024902344
+  "ts": 1783166734.934636,
+  "duration_s": 99.37721085548401
 }
