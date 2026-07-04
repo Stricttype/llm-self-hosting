@@ -46,7 +46,24 @@ def main() -> int:
         else:
             failed.append(name)
     print(f"\n{passed}/{len(cases)} passed")
-    return 0 if not failed else 1
+
+    # Fixtures
+    print(f"\nFrozen regression fixtures:")
+    result = subprocess.run([sys.executable, str(Path(__file__).parent / "fixtures.py")],
+                            capture_output=True, text=True, timeout=30)
+    print(f"  {result.stdout.strip().splitlines()[0]}")
+    fix_pass = result.returncode == 0
+
+    # Shadow runner self-tests
+    print(f"\nShadow runner self-tests:")
+    shadow_test = Path(__file__).parent / "test_shadow_run.py"
+    result = subprocess.run([sys.executable, str(shadow_test)],
+                            capture_output=True, text=True, timeout=30)
+    for line in result.stdout.strip().splitlines():
+        print(f"  {line}")
+    shadow_pass = result.returncode == 0
+
+    return 0 if (not failed and fix_pass and shadow_pass) else 1
 
 
 if __name__ == "__main__":

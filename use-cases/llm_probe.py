@@ -17,8 +17,8 @@ import urllib.error
 
 @dataclass
 class ProbeResult:
-    ok: bool
-    backend: str       # "openai" | "ollama" | "unreachable"
+    ok: bool = False
+    backend: str = "unreachable"  # "openai" | "ollama" | "unreachable"
     model: str = ""
     ttft_ms: float = 0.0
     tokens_out: int = 0

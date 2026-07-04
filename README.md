@@ -15,6 +15,18 @@ Built from deep research stored in [`vault/projects/llm-self-hosting/`](file:///
 | `lora_manager.py` | Multi-LoRA hot-swap lifecycle against vLLM (`/v1/load_lora_adapter`) | dry-run load/unload/health |
 | `llm_probe.py` | Smoke-test any local LLM endpoint (vLLM/Ollama/LM Studio/llama-server) | unreachable detection |
 
+## Self-Improvement Loop (Step 1: regression harness)
+
+Per Claude architecture review (pattern `closed-loop-architecture`, ReasoningBank, conf 0.92):
+
+| Test layer | Purpose | What it catches |
+|------------|---------|-----------------|
+| `tests/fixtures.py` | 18 frozen regression assertions across all use-cases | Any behavior change in incumbent |
+| `tests/shadow_run.py` | Score candidate vs incumbent on frozen set, gate promotion | Regressions, neutral candidates |
+| `tests/test_shadow_run.py` | 3 self-tests for the runner itself | Runner bugs |
+
+Next steps (per Claude): VoI gate (~150 LOC), then `post-task → VoI → PROPOSE → SHADOW → PROMOTE` loop on scripts only.
+
 ## Run all tests
 
 ```bash
