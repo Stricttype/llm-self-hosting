@@ -24,14 +24,23 @@
       "winner_pass_rate": 100.0,
       "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/cost_calculator.py.bak.20260704T113507",
       "promoted_at": "2026-07-04T11:35:07.291982+00:00"
+    },
+    {
+      "script": "cost_calculator",
+      "variant": "v1_add_h200_tier",
+      "incumbent_pass_rate": 95.7,
+      "winner_pass_rate": 100.0,
+      "incumbent_backup": "/Users/kayaking/Dev/llm-self-hosting/use-cases/cost_calculator.py.bak.20260704T113700",
+      "promoted_at": "2026-07-04T11:37:00.729636+00:00"
     }
   ],
   "n_evaluated": 8,
-  "ts": "2026-07-04T11:35:07.291982+00:00",
-  "runs": 11,
+  "ts": "2026-07-04T11:37:20.751807+00:00",
+  "runs": 13,
   "last_attempt": {
-    "ts": "2026-07-04T11:35:07.291982+00:00",
-    "verdict": "promote",
-    "winner": "cost_calculator__v0_control"
-  }
+    "ts": "2026-07-04T11:37:20.751807+00:00",
+    "verdict": "neutral",
+    "winner": null
+  },
+  "reason": "verdict=neutral; no promotion"
 }

@@ -3,19 +3,7 @@
     {
       "label": "cost_calculator__v0_control",
       "rc": 0,
-      "stdout": "incumbent:  pass_rate=95.5% (21/22) regressions=0 errors=1\ncandidate:  pass_rate=100.0% (22/22) regressions=0 errors=0\ndelta:      +1 passes, 0 new regressions\nPROMOTE: candidate beats incumbent with no regressions.\n",
-      "stderr": "",
-      "incumbent_pass_rate": 95.5,
-      "incumbent_regressions": 0,
-      "candidate_pass_rate": 100.0,
-      "candidate_regressions": 0,
-      "delta_passes": 1,
-      "verdict": "promote"
-    },
-    {
-      "label": "cost_calculator__v1_add_h200_tier",
-      "rc": 0,
-      "stdout": "incumbent:  pass_rate=100.0% (22/22) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (22/22) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
+      "stdout": "incumbent:  pass_rate=100.0% (23/23) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (23/23) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
       "stderr": "",
       "incumbent_pass_rate": 100.0,
       "incumbent_regressions": 0,
@@ -27,7 +15,7 @@
     {
       "label": "hardware_sizer__v0_control",
       "rc": 0,
-      "stdout": "incumbent:  pass_rate=100.0% (22/22) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (22/22) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
+      "stdout": "incumbent:  pass_rate=100.0% (23/23) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (23/23) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
       "stderr": "",
       "incumbent_pass_rate": 100.0,
       "incumbent_regressions": 0,
@@ -39,7 +27,7 @@
     {
       "label": "hardware_sizer__v2_lower_overhead",
       "rc": 0,
-      "stdout": "incumbent:  pass_rate=100.0% (22/22) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (22/22) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
+      "stdout": "incumbent:  pass_rate=100.0% (23/23) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (23/23) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
       "stderr": "",
       "incumbent_pass_rate": 100.0,
       "incumbent_regressions": 0,
@@ -51,7 +39,7 @@
     {
       "label": "prompt_guard__v0_control",
       "rc": 0,
-      "stdout": "incumbent:  pass_rate=100.0% (22/22) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (22/22) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
+      "stdout": "incumbent:  pass_rate=100.0% (23/23) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (23/23) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
       "stderr": "",
       "incumbent_pass_rate": 100.0,
       "incumbent_regressions": 0,
@@ -63,7 +51,7 @@
     {
       "label": "prompt_guard__v2_tighter_confidence",
       "rc": 0,
-      "stdout": "incumbent:  pass_rate=100.0% (22/22) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (22/22) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
+      "stdout": "incumbent:  pass_rate=100.0% (23/23) regressions=0 errors=0\ncandidate:  pass_rate=100.0% (23/23) regressions=0 errors=0\ndelta:      +0 passes, 0 new regressions\nNEUTRAL: no improvement, no regression. Decide based on other criteria.\n",
       "stderr": "",
       "incumbent_pass_rate": 100.0,
       "incumbent_regressions": 0,
@@ -73,10 +61,10 @@
       "verdict": "neutral"
     }
   ],
-  "incumbent_pass_rate": 95.5,
-  "winner": "cost_calculator__v0_control",
-  "winner_script": "cost_calculator",
-  "winner_variant": "v0_control",
-  "verdict": "promote",
+  "incumbent_pass_rate": 100.0,
+  "winner": null,
+  "winner_script": null,
+  "winner_variant": null,
+  "verdict": "neutral",
   "n_candidates": 8
 }

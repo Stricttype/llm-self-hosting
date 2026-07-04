@@ -3,7 +3,7 @@
   "cognitive_pattern": "lateral",
   "command": "python3 agent/stages/propose.py",
   "returncode": 0,
-  "stdout": "[propose] 8 candidates across 3 scripts \u2192 /Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/\n  prompt_guard:\n    - v0_control: no change (control) (4723 bytes)\n    - v1_more_patterns: +2 injection patterns [already-promoted, no-op] (0 bytes)\n    - v2_tighter_confidence: tighten confidence thresholds (4735 bytes)\n  hardware_sizer:\n    - v0_control: no change (control) (3192 bytes)\n    - v1_add_b200_tier: add B200 192GB tier for 140-192GB workloads [already-promoted, no-op] (0 bytes)\n    - v2_lower_overhead: reduce overhead_pct 10-15% \u2192 8-12% (3199 bytes)\n  cost_calculator:\n    - v0_control: no change (control) (3540 bytes)\n    - v1_add_h200_tier: add H200 (141GB HBM3e) tier (3630 bytes)\n",
+  "stdout": "[propose] 8 candidates across 3 scripts \u2192 /Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/\n  prompt_guard:\n    - v0_control: no change (control) (4723 bytes)\n    - v1_more_patterns: +2 injection patterns [already-promoted, no-op] (0 bytes)\n    - v2_tighter_confidence: tighten confidence thresholds (4735 bytes)\n  hardware_sizer:\n    - v0_control: no change (control) (3192 bytes)\n    - v1_add_b200_tier: add B200 192GB tier for 140-192GB workloads [already-promoted, no-op] (0 bytes)\n    - v2_lower_overhead: reduce overhead_pct 10-15% \u2192 8-12% (3199 bytes)\n  cost_calculator:\n    - v0_control: no change (control) (3724 bytes)\n    - v1_add_h200_tier: add H200 (141GB HBM3e) tier [already-promoted, no-op] (0 bytes)\n",
   "stderr": "",
-  "ts": 1783164906.3790321
+  "ts": 1783165040.044647
 }

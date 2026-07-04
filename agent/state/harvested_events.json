@@ -1,59 +1,59 @@
 {
-  "count": 8,
+  "count": 10,
   "events": [
     {
-      "event_id": "loop_1783164886_harvest",
+      "event_id": "loop_1783165021_harvest",
       "type": "stage_completion",
       "stage": "harvest",
       "outcome": "passed",
       "passed": true,
-      "context": "closed-loop stage harvest completed in run @ 1783164886.1455512",
-      "ts": 1783164886.1455512
+      "context": "closed-loop stage harvest completed in run @ 1783165020.85726",
+      "ts": 1783165020.85726
     },
     {
-      "event_id": "loop_1783164886_monitor",
+      "event_id": "loop_1783165021_monitor",
       "type": "stage_completion",
       "stage": "monitor",
       "outcome": "passed",
       "passed": true,
-      "context": "closed-loop stage monitor completed in run @ 1783164886.1455512",
-      "ts": 1783164886.1455512
+      "context": "closed-loop stage monitor completed in run @ 1783165020.85726",
+      "ts": 1783165020.85726
     },
     {
-      "event_id": "loop_1783164886_promote",
+      "event_id": "loop_1783165021_promote",
       "type": "stage_completion",
       "stage": "promote",
       "outcome": "passed",
       "passed": true,
-      "context": "closed-loop stage promote completed in run @ 1783164886.1455512",
-      "ts": 1783164886.1455512
+      "context": "closed-loop stage promote completed in run @ 1783165020.85726",
+      "ts": 1783165020.85726
     },
     {
-      "event_id": "loop_1783164886_propose",
+      "event_id": "loop_1783165021_propose",
       "type": "stage_completion",
       "stage": "propose",
       "outcome": "passed",
       "passed": true,
-      "context": "closed-loop stage propose completed in run @ 1783164886.1455512",
-      "ts": 1783164886.1455512
+      "context": "closed-loop stage propose completed in run @ 1783165020.85726",
+      "ts": 1783165020.85726
     },
     {
-      "event_id": "loop_1783164886_shadow",
+      "event_id": "loop_1783165021_shadow",
       "type": "stage_completion",
       "stage": "shadow",
       "outcome": "passed",
       "passed": true,
-      "context": "closed-loop stage shadow completed in run @ 1783164886.1455512",
-      "ts": 1783164886.1455512
+      "context": "closed-loop stage shadow completed in run @ 1783165020.85726",
+      "ts": 1783165020.85726
     },
     {
-      "event_id": "loop_1783164886_value",
+      "event_id": "loop_1783165021_value",
       "type": "stage_completion",
       "stage": "value",
       "outcome": "passed",
       "passed": true,
-      "context": "closed-loop stage value completed in run @ 1783164886.1455512",
-      "ts": 1783164886.1455512
+      "context": "closed-loop stage value completed in run @ 1783165020.85726",
+      "ts": 1783165020.85726
     },
     {
       "event_id": "promotion_2026-07-04T11:14:09+00:00",
@@ -70,6 +70,22 @@
       "passed": true,
       "context": "hardware_sizer@v1_add_b200_tier promoted at 100.0%",
       "ts": "2026-07-04T11:33:39.533839+00:00"
+    },
+    {
+      "event_id": "promotion_2026-07-04T11:35:07.291982+00:00",
+      "type": "promotion",
+      "outcome": "promoted",
+      "passed": true,
+      "context": "cost_calculator@v0_control promoted at 100.0%",
+      "ts": "2026-07-04T11:35:07.291982+00:00"
+    },
+    {
+      "event_id": "promotion_2026-07-04T11:37:00.729636+00:00",
+      "type": "promotion",
+      "outcome": "promoted",
+      "passed": true,
+      "context": "cost_calculator@v1_add_h200_tier promoted at 100.0%",
+      "ts": "2026-07-04T11:37:00.729636+00:00"
     }
   ],
   "synthetic": true

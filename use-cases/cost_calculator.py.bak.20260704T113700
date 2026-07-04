@@ -19,7 +19,6 @@ class HostProfile:
 
 HOSTS = {
     "H100_on_demand": HostProfile("H100 on-demand", 2.50, 6_600_000),
-    "H200_on_demand": HostProfile("H200 on-demand (141GB HBM3e)", 3.20, 8_500_000),
     "B200_on_demand": HostProfile("B200 on-demand (FP4)", 5.50, 54_000_000),
     "B200_spot":      HostProfile("B200 spot (FP4)",      2.12, 54_000_000),
 }
@@ -91,4 +90,4 @@ if __name__ == "__main__":
     # Crossover sanity: at 80M/mo + 100% util on B200, self-host should win
     assert cost_self_host(80_000_000, "B200_spot", 1.0) < cost_api(80_000_000, "gpt-5.4")
     print("\nOK: cost calc handles 3 hosts × 3 utils × 4 volumes + crossover assertion")
-__variant_id__ = "cost_calculator__v1_add_h200_tier"
+__variant_id__ = "cost_calculator__v0_control"

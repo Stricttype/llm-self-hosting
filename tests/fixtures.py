@@ -80,6 +80,9 @@ FIXTURES: tuple[Fixture, ...] = (
             "cost_calculator.cost_api(10_000_000, 'gpt-5.4') < cost_calculator.cost_self_host(10_000_000, 'H100_on_demand', 0.01)"),
     Fixture("cost_utilization_monotone", "cost_calculator",
             "cost_calculator.cost_self_host(100_000_000, 'H100_on_demand', 0.5) > cost_calculator.cost_self_host(100_000_000, 'H100_on_demand', 1.0)"),
+    # NEW fixture (Step 3 multi-script): H200 (141GB HBM3e) tier exists in HOSTS dict
+    Fixture("cost_h200_tier_present", "cost_calculator",
+            "'H200_on_demand' in cost_calculator.HOSTS"),
 
     # prompt_guard: must catch obvious injections, must not flag benign
     Fixture("guard_blocks_obvious_injection", "prompt_guard",

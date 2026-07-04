@@ -3,7 +3,7 @@
   "cognitive_pattern": "systems",
   "command": "python3 agent/stages/monitor.py",
   "returncode": 0,
-  "stdout": "[monitor] prompt_guard@v1_more_patterns: precision=1.00 demoted=False\n[monitor] hardware_sizer@v1_add_b200_tier: precision=1.00 demoted=False\n[monitor] cost_calculator@v0_control: precision=0.00 demoted=False\n[monitor] 0 alerts (3 promoted artifacts tracked)\n",
+  "stdout": "[monitor] prompt_guard@v1_more_patterns: precision=1.00 demoted=False\n[monitor] hardware_sizer@v1_add_b200_tier: precision=1.00 demoted=False\n[monitor] cost_calculator@v0_control: precision=1.00 demoted=False\n[monitor] cost_calculator@v1_add_h200_tier: precision=1.00 demoted=False\n[monitor] 0 alerts (4 promoted artifacts tracked)\n",
   "stderr": "",
-  "ts": 1783164907.3455749
+  "ts": 1783165040.801248
 }

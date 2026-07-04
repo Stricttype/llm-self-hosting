@@ -3,7 +3,7 @@
   "cognitive_pattern": "convergent",
   "command": "python3 agent/stages/promote.py",
   "returncode": 0,
-  "stdout": "[promote] PROMOTED cost_calculator@cost_calculator__v0_control \u2192 use-cases/cost_calculator.py\n[promote] incumbent backup: /Users/kayaking/Dev/llm-self-hosting/use-cases/cost_calculator.py.bak.20260704T113507\n[promote] history: 3 total promotions, run #11\n",
+  "stdout": "[promote] no promotion (verdict=neutral, run #13)\n",
   "stderr": "",
-  "ts": 1783164907.2960262
+  "ts": 1783165040.755828
 }

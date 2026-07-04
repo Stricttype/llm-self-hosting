@@ -60,14 +60,15 @@
         "script": "cost_calculator",
         "description": "no change (control)",
         "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/cost_calculator__v0_control.py",
-        "size_bytes": 3540
+        "size_bytes": 3724
       },
       {
         "variant_id": "v1_add_h200_tier",
         "script": "cost_calculator",
-        "description": "add H200 (141GB HBM3e) tier",
-        "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/cost_calculator__v1_add_h200_tier.py",
-        "size_bytes": 3630
+        "description": "add H200 (141GB HBM3e) tier [already-promoted, no-op]",
+        "path": null,
+        "size_bytes": 0,
+        "noop": true
       }
     ]
   },
@@ -121,14 +122,15 @@
       "script": "cost_calculator",
       "description": "no change (control)",
       "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/cost_calculator__v0_control.py",
-      "size_bytes": 3540
+      "size_bytes": 3724
     },
     {
       "variant_id": "v1_add_h200_tier",
       "script": "cost_calculator",
-      "description": "add H200 (141GB HBM3e) tier",
-      "path": "/Users/kayaking/Dev/llm-self-hosting/agent/state/candidates/cost_calculator__v1_add_h200_tier.py",
-      "size_bytes": 3630
+      "description": "add H200 (141GB HBM3e) tier [already-promoted, no-op]",
+      "path": null,
+      "size_bytes": 0,
+      "noop": true
     }
   ],
   "n_total": 8,
