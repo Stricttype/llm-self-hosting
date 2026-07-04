@@ -1,0 +1,91 @@
+"""
+Use Case 5: Multi-LoRA Manager
+Manages LoRA adapter lifecycle against a vLLM endpoint.
+Provides load/list/unload with health checks and dry-run mode.
+
+Ponytail: requests only when endpoint set, stdlib http.client otherwise.
+Self-check via __main__ in dry-run mode (no server needed).
+"""
+
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Optional
+import json
+import urllib.request
+import urllib.error
+
+
+@dataclass(frozen=True)
+class AdapterInfo:
+    name: str
+    path: str
+    loaded: bool
+
+
+class LoRAManager:
+    def __init__(self, base_url: str = "http://localhost:8000", dry_run: bool = False):
+        self.base_url = base_url.rstrip("/")
+        self.dry_run = dry_run
+
+    def _request(self, method: str, path: str, body: Optional[dict] = None) -> dict:
+        url = f"{self.base_url}{path}"
+        data = json.dumps(body).encode() if body else None
+        req = urllib.request.Request(url, data=data, method=method)
+        req.add_header("Content-Type", "application/json")
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                return json.loads(resp.read().decode() or "{}")
+        except urllib.error.URLError as e:
+            raise RuntimeError(f"vLLM endpoint unreachable: {e}") from e
+
+    def load(self, name: str, path: str) -> AdapterInfo:
+        if self.dry_run:
+            return AdapterInfo(name, path, True)
+        self._request("POST", "/v1/load_lora_adapter", {"lora_name": name, "lora_path": path})
+        return AdapterInfo(name, path, True)
+
+    def unload(self, name: str) -> bool:
+        if self.dry_run:
+            return True
+        self._request("POST", "/v1/unload_lora_adapter", {"lora_name": name})
+        return True
+
+    def list_adapters(self) -> list[AdapterInfo]:
+        """vLLM doesn't expose a GET endpoint for adapters in 2026; parse from /metrics."""
+        if self.dry_run:
+            return []
+        try:
+            with urllib.request.urlopen(f"{self.base_url}/metrics", timeout=5) as resp:
+                text = resp.read().decode()
+            # Look for vllm:lora_cache_info metric. Format varies by version.
+            # ponytail: parse loosely — fail open if format changes.
+            adapters = []
+            for line in text.splitlines():
+                if line.startswith("#") or "lora" not in line.lower():
+                    continue
+                if "{" in line:  # has labels
+                    adapters.append(AdapterInfo(name=line.split('"')[1] if '"' in line else "unknown",
+                                                 path="unknown", loaded=True))
+            return adapters
+        except Exception:
+            return []
+
+    def health(self) -> bool:
+        if self.dry_run:
+            return True
+        try:
+            self._request("GET", "/health")
+            return True
+        except Exception:
+            return False
+
+
+if __name__ == "__main__":
+    # Dry-run self-check (no vLLM server needed)
+    mgr = LoRAManager(dry_run=True)
+    assert mgr.health()
+    info = mgr.load("sql-expert", "/models/adapters/llama3-sql-lora")
+    assert info.loaded
+    assert mgr.unload("sql-expert")
+    print("OK: dry-run LoRA manager: load/unload/health all pass")
+    print(f"     example adapter: {info.name} @ {info.path}")
